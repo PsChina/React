@@ -34,10 +34,14 @@ create-react-app my-app
 
 ## 四、安装依赖
 
+```bash
+cd ./my-app
+```
 使用 
 ```bash
 npm i 
 ```
+
 来安装依赖。
 
 在中国这些包的安装会异常耗时，有时甚至会失败，原因是因为npm访问的是外国服务器经过了多次转发，以及需要经过防火长城(Great Firewall of China)的过滤。

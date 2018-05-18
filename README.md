@@ -1,2 +1,2 @@
 # React
-React note.
+这个仓库用于记录我的react使用笔记，以及和发夹分享。

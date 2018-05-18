@@ -86,6 +86,22 @@ git commit -am "Save before ejecting"
 ```
 然后再次尝试 npm run eject 。
 
+成功以后会多一个 config 文件夹
+
+其中 
+
+env.js 用于获取项目运行环境。
+
+paths.js 用于配置路径。
+
+polyfills.js 用于补足浏览器内缺少的 Promise 和 Object.assign 。
+
+webpack.config.dev.js 用于配置开发环境。
+
+webpack.config.prod.js 用于配置如何打包发布。
+
+webpackDevServer.config 用于配置服务。
+
 ## 六、配置 eslint
 
 我们可以通过 airbnb 来快速为 react 项目配置 eslint 规范。
@@ -156,4 +172,110 @@ eslint 提示级别
 
 ## 七、更改打包路径
 
-## 八、设置proxy代理
+很简单的找到
+
+webpack.config.prod.js
+
+根据 webpack 的基本知识找到 output 发现它引用了 paths.js 内的 appBuild 属性。 默认值是 "build" 。
+
+修改默认值即可。
+
+## 八、设置 proxy 代理
+
+找到
+
+webpackDevServer.config.js
+
+添加 proxy 字段格式如下：
+```js
+{
+'/rest/bas/user/login': {
+target: 'http://139.241.043.218:40000',
+},
+'/rest/ams/*':{
+target: 'http://139.241.043.218:40004'
+},
+'/rest/tpms/package/pack':{
+target: 'http://139.241.043.218:40004'
+}
+```
+
+## 九、设置 mock 数据
+
+
+在 src 下新建 mock 文件夹并且新建 mock.js 文件。
+
+```bash
+npm i mockjs axios-mock-adapter --save-dev
+npm i axios --save
+```
+
+### 例如:
+mock.js
+```js
+import Mock from "mockjs";
+import axios from 'axios';
+import MockAdapter from "axios-mock-adapter";
+
+const mock = new MockAdapter(axios);
+
+const data = []
+
+for( let i = 0 ; i < 200 ; i++ ) {
+    data.push(
+            {
+                time:new Date('2018-5-1 8:30').getTime()+1000*60*60*24*i,
+                customerName:Mock.Random.cname(),
+                customerType:Mock.Random.integer( 0, 1 ),
+                paymentContent:Mock.Random.cparagraph(1),
+                orderAmount:Mock.Random.integer(1000,10000),
+                paymentType:Mock.Random.integer( 0, 1 ),
+                note:'备注',
+                state:Mock.Random.integer( 0, 1 ),
+                id:i       
+            } 
+        )
+}
+
+mock.onAny().reply(function(config){
+    if( config.method.toUpperCase() === 'GET' ){
+        const path = config.url.split('?')[0]
+        switch(path){
+            case '/aps/rest/orderlist':
+            return [200,orderlist];
+            case '/aps/rest/confirm/order':
+            return [200,{success:true}];
+            default :
+            return [200,'ok'];
+        }
+    }else if( config.method.toUpperCase() === 'PATCH' ){
+        const path = config.url.split('?')[0]
+        switch(path){
+            case '/aps/rest/confirm/order':
+            return [200,{success:Mock.Random.boolean()}];
+            default :
+            return [200,{msg:'ok'}];
+            case '/aps/rest/confirm/orders':
+            return [200,{success:Mock.Random.boolean()}]
+        }
+    }
+})
+```
+
+然后在 index.js 将该文件 import 即可。
+
+
+## 十、 网络请求的封装
+```bash
+npm i antd utility pako --save
+```
+当然上面可能集成了你不需要的 ui 库 antd 。你可以去掉 因为他在这里仅仅用来，提示网络错误。
+
+入口文件是 request.js 。
+
+核心方法是 request 。
+
+请查看 [http](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8/http) 。
+
+
+## 十一、 i18n与国际化

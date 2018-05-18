@@ -123,7 +123,7 @@ eslint-plugin-jsx-a11y
 
 "react/prefer-stateless-function":"off",
 
-2 airbnb 默认不能再 .js 文件中写 jsx 。 我们需要关闭。
+2 airbnb 默认不能在 .js 文件中写 jsx 。 我们需要关闭。
 
 "react/jsx-filename-extension":"off",
 

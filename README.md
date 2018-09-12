@@ -27,8 +27,11 @@ npm i react react-dom -S
 
 ## 4、
 新建react项目入口文件app.js
+
 新建项目主页index.html
+
 新建webpack配置文件 webpack.config.js
+
 app.js
 ```js
 import React from 'react'
@@ -48,6 +51,8 @@ class App extends React.Component{
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
 在html 中需要一个元素来作为react dom树的根节点 当然你也可以直接用body
+
+index.html
 ```html
 <!DOCTYPE html>
 <html lang="en">

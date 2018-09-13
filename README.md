@@ -6,9 +6,9 @@
 
 ## 前言
 
-react不像jquery一样能通过src直接使用它需要一系列的辅助工具的支持，我们在学习react之前需要初步了解 nodejs webpack 以及 babel。
+react不像jquery一样能通过src直接使用它需要一系列的辅助工具的支持，我们在学习react之前需要初步了解 nodejs [webpack](https://github.com/PsChina/Vue/tree/master/webpack) 以及 babel。
 
-另外还需要掌握 es6 jsx 函数式编程 等知识
+另外还需要掌握 [es6](https://github.com/PsChina/Vue/tree/master/es6) jsx 函数式编程 等知识
 
 ## 1、
 安装[nodejs](https://nodejs.org/en/)
@@ -235,3 +235,23 @@ module.exports = {
 ### 抽离公共 js 单独抽取 css 等等
 
 请查看weboack [plugin内容](https://github.com/PsChina/Vue/blob/master/webpack/s-Day7%203-webpack-plugin.md)
+
+
+### scripts
+
+如果觉得每次运行项目都需要输入 webpack-dev-server --mode development 太麻烦的话可以在 package.json 中的 scripts 字段下添加cmd命令
+
+package.json
+```json
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --mode development"
+  },
+}
+```
+就可以通过 
+```
+npm run dev
+```
+来运行项目啦

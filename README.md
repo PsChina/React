@@ -255,3 +255,7 @@ package.json
 npm run dev
 ```
 来运行项目啦
+
+### 学习react语法
+
+如果想进一步了解react语法可以点击链接 [react语法](https://github.com/PsChina/React/tree/master/demos/react%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0)

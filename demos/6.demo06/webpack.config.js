@@ -30,7 +30,6 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/env', '@babel/react'],
-                    plugins: ['@babel/plugin-proposal-class-properties']
                 }
             } ] },
             { test: /\.html$/, use: ['html-loader'] },

@@ -297,9 +297,16 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 __需要注意的是props是不可变的__ 如果尝试修改它的值，react会抛出一个错误。
 
+## static defaultProps
+
+为了防止出现 props 为空的情况 可以通过 `static defaultProps` 为 props 设置默认值。
 
 ```jsx
+
 class HelloMessage extends React.Component {
+    static defaultProps = {
+        name: 'world'
+    }
     constructor(){
         super()
     }
@@ -317,14 +324,25 @@ class App extends React.Component{
     render(){
         return (
             <div>
+                <HelloMessage />
                 <HelloMessage name="Pan shan shan"/>
             </div>
         )
     }
 }
 ```
-
 ![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)
+
+__注意:__
+
+静态属性是 js 的新特新需要安装 `@babel/plugin-proposal-class-properties`
+```bash
+npm i @babel/plugin-proposal-class-properties -D
+```
+
+并且配置 webpack.config.js :
+
+![config](https://github.com/PsChina/React/blob/master/images/static_plugins.png)
 
 # demo05: react 子节点 this.props.children
 
@@ -379,3 +397,5 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 运行效果:
 
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
+
+# demo06: 

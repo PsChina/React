@@ -6,7 +6,6 @@ class NodeList extends React.Component{
         super()
     }
     render(){
-        console.log(this.props.children)
         return (
             <ul>
                 { React.Children.map(this.props.children,item=><li>{item}</li>) }

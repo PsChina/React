@@ -1,30 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class HelloMessage extends React.Component {
-    static defaultProps = {
-        name: 'world'
-    }
+class MyTitile extends React.Component{
     constructor(){
         super()
     }
     render(){
         return (
-            <div>Hello {this.props.name}!</div>
+            <h1>{this.props.title}</h1>
         )
     }
 }
-
 class App extends React.Component{
     constructor(){
         super()
     }
     render(){
         return (
-            <div>
-                <HelloMessage />
-                <HelloMessage name="Pan shan shan"/>
-            </div>
+            <MyTitile title="标题"/>
         )
     }
 }

@@ -254,4 +254,4 @@ package.json
 
 ### 学习react语法
 
-如果想进一步了解react语法可以点击链接 [react语法](https://github.com/PsChina/React/tree/master/demos)。
+进一步学习[react 语法](https://github.com/PsChina/React/tree/master/demos)。

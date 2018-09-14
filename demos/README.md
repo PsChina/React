@@ -58,7 +58,7 @@ const HelloWorld = {
 
 __允许在js中书写类似html标签的语法。__ (所有原生标签 + react 组件)
 
-但实质上jsx会被react的环境转换成 js 对象 也就是说 __jsx 是上面那种js对象的语法糖。__
+但实质上 jsx 会被 react 的环境转换成 js 对象 也就是说 __jsx 是上面那种 js 对象的语法糖。__
 
 __jsx只能存在一个根元素。__
 
@@ -84,9 +84,9 @@ __jsx只能存在一个根元素。__
 ```
 
 ### 扩展 
-下面这个例子使用了 {} 表达式它用于在jsx中绑定js对象。
+下面这个例子使用了 {} 表达式它用于在 jsx 中绑定 js 对象。
 
-如果理解了 jsx 其实就是一个js对象那么上面的代码可以这样写：
+如果理解了 jsx 其实就是一个 js 对象那么上面的代码可以这样写：
 ```js
 const HelloWorld = <div>Hello World!</div>
 
@@ -160,11 +160,11 @@ class App extends React.Component{
     }
 }
 ```
-用以上这种驼峰方式绑定dom事件。
+用以上这种驼峰方式绑定 dom 事件。
 
-__所有原生dom事件名改成驼峰写法即可绑定dom事件。__
+__所有原生 dom 事件名改成驼峰写法即可绑定 dom 事件。__
 
-react内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有api不一致的情况。
+react 内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有 api 不一致的情况。
 
 例如：
 
@@ -200,7 +200,7 @@ class App extends React.Component{
     }
 }
 ```
-__className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的html属性正常使用。__
+__className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的 html 属性正常使用。__
 
 例如 style。
 
@@ -287,7 +287,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
-# demo04: props属性
+# demo04: props 属性
 
 ## this.props.[attribute]
 
@@ -295,7 +295,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 就像 `this.props.name` 来获取组件 `<HelloMessage name="John" />` 的 name 属性的值 John 一样。
 
-需要注意的是 __props是不可变的__ 如果尝试修改它的值，react会抛出一个错误。
+需要注意的是 __props是不可变的__ 如果尝试修改它的值，react 会抛出一个错误。
 
 ## static defaultProps
 
@@ -332,7 +332,7 @@ class App extends React.Component{
 }
 ```
 
-上面的代码中为name添加默认值的代码:
+上面的代码中为 name 添加默认值的代码:
 ```js
     static defaultProps = {
         name: 'world'

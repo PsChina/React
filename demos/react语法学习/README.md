@@ -85,13 +85,51 @@ __jsx只能存在一个根元素__
 ```js
 const HelloWorld = <div>Hello World!</div>
 
-    render(){
-        return (
-            <div>
-                { HelloWorld }
-            </div>
-        )
-    }
+render(){
+    return (
+        <div>
+            { HelloWorld }
+        </div>
+    )
+}
+
+// 如果js变量是一个数组jsx将合并所有的数组成员
+const arr = [
+    <div>Hello</div>,
+    <div>World</div>,
+]
+
+render(){
+    return (
+        <div>
+            { arr }
+        </div>
+    )
+}
+
+// 等价于
+
+render(){
+    return (
+        <div>
+            <div>Hello</div>
+            <div>World</div>
+        </div>
+    )
+}
+
+// 这意味着我们可以使用map来使得我们的非 jsx数据变成jsx 数据
+
+const myData = ['hello', 'world']
+
+render(){
+    return (
+        <div>
+            {myData.map( (item)=><div>{item}</div> )}
+        </div>
+    )
+}
+
 ```
 
 
@@ -241,3 +279,7 @@ __需要注意的是原生标签小写,自定义标签需首字母大写。__
 他们也就构成了组件树:
 
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
+
+# demo4
+state 和 props
+

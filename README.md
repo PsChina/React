@@ -115,7 +115,7 @@ webpack.config.js中增加了 bable env react html-laoder style-loader css-laode
 
 所以我们需要把这些依赖下来下来。
 
-__下载 es6 转 es5 jsx 转 js 的工具。__
+__下载 es6 转 es5、jsx 转 js 的工具。__
 
 ```bash
 npm i @babel/core babel-loader @babel/preset-env @babel/preset-react -D
@@ -127,7 +127,7 @@ __下载 将 css 转 js 的工具。__
 npm i css-loader style-loader -D
 ```
 
-__下载 将html引入webpack 的工具。__
+__下载 将html引入 webpack 的工具。__
 
 ```bash
 npm i html-loader -D
@@ -139,7 +139,7 @@ __下载 装载文件 的工具。__
 npm i url-loader -D
 ```
 
-__下载 装载html 的工具。__ (将bundle.js自动加入html。)
+__下载 装载 html 的工具。__ (将bundle.js自动加入html。)
 
 ```bash
 npm i html-webpack-plugin -D

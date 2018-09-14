@@ -206,7 +206,7 @@ app.js
 import './app.scss' // 在app.js 引入sass
 ```
 
-### 压缩js css
+### 压缩 js css
 
 ```js
 var HtmlWebpackPlugin = require('html-webpack-plugin')

@@ -10,7 +10,7 @@
 1. [this.props](#demo04-props-属性)
 1. [组件子节点](#demo05-react-组件子节点)
 1. [props 验证](#demo06-props-验证-proptypes)
-1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
+1. [操作 dom](#demo07-在-react-组件中查找一个-dom-节点)
 1. [this.state](#demo08-react-组件状态)
 
 ## demo01: Hello World
@@ -583,7 +583,7 @@ MyComponent.propTypes = {
 // 看到这么丰富的props验证器是不是感觉有种想用 typscript 的冲动?
 ```
 
-## demo07: 在 react 中查找一个 dom 节点
+## demo07: 在 react 组件中查找一个 dom 节点
 
 ```jsx
 import React from 'react'

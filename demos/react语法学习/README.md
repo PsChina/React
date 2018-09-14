@@ -2,13 +2,13 @@
 
 # demo1
 
-hello world
+Hello World
 
-react 的编写需要引入 react 以及 react-dom 这个两个js库
+react 的编写需要引入 react 以及 react-dom 这个两个js库。
 
-react 是以一个一个组件的方式来编写应用的
+react 是以一个一个组件的方式来编写应用的。
 
-它定义组件的方式是
+它定义组件的方式是：
 ```jsx
     class Component extends React.Component{
         constructor(){
@@ -28,7 +28,7 @@ react 是以一个一个组件的方式来编写应用的
 ## 什么是jsx
 react 推崇所有的功能都用js来实现包括 html css。
 
-用js来表示html是可以办到的
+用js来表示html是可以办到的。
 
 举个例子:
 ```js
@@ -48,17 +48,17 @@ const HelloWorld = {
     ]
 }
 ```
-但是这样表示会带来不便于书写和阅读的问题
+但是这样表示会带来不便于书写和阅读的问题。
 
-解决办法就是jsx
+解决办法就是jsx。
 
-__允许在js中书写类似html标签的语法__ (所有原生标签 + react 组件)
+__允许在js中书写类似html标签的语法。__ (所有原生标签 + react 组件)
 
 但实质上jsx会被react的环境转换成 js 对象 也就是说 __jsx 是上面那种js对象的语法糖。__
 
 __jsx只能存在一个根元素__
 
-以下写法是不合法的
+以下写法是不合法的：
 ```jsx
         render(){
             return (
@@ -67,7 +67,7 @@ __jsx只能存在一个根元素__
             )
         }
 ```
-正确写法是
+正确写法是：
 ```jsx
         render(){
             return (
@@ -80,7 +80,7 @@ __jsx只能存在一个根元素__
 ```
 
 ### 扩展 
-下面这个例子使用了 {} 表达式它用于在jsx中绑定js对象
+下面这个例子使用了 {} 表达式它用于在jsx中绑定js对象。
 
 如果理解了 jsx 其实就是一个js对象那么上面的代码可以这样写：
 ```js
@@ -139,7 +139,7 @@ dom 事件 和 属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 
-__react中使用 {}  表达式在 jsx 中绑定 js 变量__
+__react中使用 {}  表达式在 jsx 中绑定 js 变量。__
 
 绑定事件:
 ```jsx
@@ -163,7 +163,7 @@ __所有原生dom事件名改成驼峰写法即可绑定dom事件。__
 
 react内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有api不一致的情况。
 
-例如
+例如：
 
 ```jsx
 <input onFocus={()=>{console.log('on focus.')}} />
@@ -196,7 +196,7 @@ class App extends React.Component{
 ```
 __className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的html属性正常使用。__
 
-例如 style
+例如 style。
 
 ```jsx
 class App extends React.Component{

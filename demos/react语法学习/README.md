@@ -21,7 +21,9 @@ react 是以一个一个组件的方式来编写应用的
         }
     }
 ```
-上面的 render 方法是必须实现的它的返回值是 一个用"()"小括号括起来的 jsx 就是你要编写的ui
+上面的 render 方法是必须实现的它的返回值是 一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
+
+你不需要使用 new 关键字来获取组件，像使用html标签一样使用它, 就像:`<Component/>`。
 
 ## 什么是jsx
 react 推崇所有的功能都用js来实现包括 html css。
@@ -281,5 +283,7 @@ __需要注意的是原生标签小写,自定义标签需首字母大写。__
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
 # demo4
-state 和 props
+props
+
+react
 

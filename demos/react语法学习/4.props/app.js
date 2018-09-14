@@ -16,6 +16,7 @@ class ChildComponent extends React.Component{
 class App extends React.Component{
     constructor(){
         super()
+        
     }
     render(){
         return (

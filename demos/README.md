@@ -419,5 +419,128 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
-# demo06: 属性类型 PropTypes
+# demo06: 属性类型（props验证） PropTypes
+
+为了保证传递的参数的类型是确定的，以及参数是否为必传参数 React 提供了 PropTypes 供我们使用。
+
+需要 `import PropTypes from 'prop-types`。
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+
+class MyTitle extends React.Component{
+    static propTypes = {
+        title: PropTypes.string.isRequired // 规定必须含有字符串类型的 title 属性。
+    }
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <h1>{this.props.title}</h1>
+        )
+    }
+}
+
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <MyTitle title="标题"/>
+        )
+    }
+}
+
+ReactDOM.render(<App/>,document.getElementById('root'))
+```
+如果传递了参数，并且类型是正确的效果如下:
+
+![right](https://github.com/PsChina/React/blob/master/images/right.png)
+
+如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 则会出现以下报错:
+![type_error](https://github.com/PsChina/React/blob/master/images/type_error.png)
+
+如果没有传递参数，则会出现以下报错:
+![no_val](https://github.com/PsChina/React/blob/master/images/no_val.png)
+
+如果参数是可选的可以将以上代码改写为:
+```jsx
+// 新特新写法: (class 内部)
+static propTypes = {
+    title: PropTypes.string // 可选属性 title 类型必须是 string 。
+}
+// 非新特新写法: (用过class静态属性添加)
+MyTitle.propTypes = {
+    title: PropTypes.string // 可选属性 title 类型必须是 string 。
+}
+```
+### typelist
+
+```js
+MyComponent.propTypes = {
+    Array: PropTypes.array,     // 数组
+    Bool: PropTypes.bool,       // 布尔
+    Func: PropTypes.func,       // 函数
+    Number: PropTypes.number,   // 数值
+    Object: PropTypes.object,   // 对象
+    String: PropTypes.string,   // 字符串
+    Symbol: PropTypes.symbol,   // symbol
+    Node: PropTypes.node,       // 任何可被渲染的元素（包括数字、字符串、子元素或数组）。
+    Element: PropTypes.element, // 一个 React 元素
+    Message: PropTypes.instanceOf(Message), // 某个类的实例
+    Enum: PropTypes.oneOf(['News', 'Photos']), // 某个特定值之一
+    Union: PropTypes.oneOfType([ // 列举类型之一
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.instanceOf(Message)
+    ]),
+    // 一个指定元素类型的数组
+    ArrayOf: PropTypes.arrayOf(PropTypes.number),
+
+    // 一个指定类型的对象
+    ObjectOf: PropTypes.objectOf(PropTypes.number),
+
+    // 一个指定属性及其类型的对象
+    ObjectWithShape: PropTypes.shape({
+        color: PropTypes.string,
+        fontSize: PropTypes.number
+    }),
+    // 你也可以在任何 PropTypes 属性后面加上 `isRequired` 
+    // 后缀，这样如果这个属性父组件没有提供时，会打印警告信息
+    requiredFunc: PropTypes.func.isRequired,
+
+    // 任意类型的数据
+    requiredAny: PropTypes.any.isRequired,
+
+    // 你也可以指定一个自定义验证器。它应该在验证失败时返回
+    // 一个 Error 对象而不是 `console.warn` 或抛出异常。
+    // 不过在 `oneOfType` 中它不起作用。
+    customProp: function(props, propName, componentName) {
+        if (!/matchme/.test(props[propName])) {
+        return new Error(
+            'Invalid prop `' + propName + '` supplied to' +
+            ' `' + componentName + '`. Validation failed.'
+        );
+        }
+    },
+
+    // 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf` 
+    // 验证器，它应该在验证失败时返回一个 Error 对象。 它被用
+    // 于验证数组或对象的每个值。验证器前两个参数的第一个是数组
+    // 或对象本身，第二个是它们对应的键。
+    customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+        if (!/matchme/.test(propValue[key])) {
+        return new Error(
+            'Invalid prop `' + propFullName + '` supplied to' +
+            ' `' + componentName + '`. Validation failed.'
+        );
+        }
+    })
+}
+// 看到这么丰富的props验证器是不是感觉有种想用 typscript 的冲动?
+```
 

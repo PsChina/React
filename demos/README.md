@@ -494,11 +494,11 @@ class App extends React.Component{
 
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
-如果传递了参数，并且类型是正确的效果如下:
+如果传递了参数，并且类型是正确的（ `<MyTitle title="标题" />` ）效果如下:
 
 ![right](https://github.com/PsChina/React/blob/master/images/right.png)
 
-如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 ( `<MyTitle title={123} />` ) 则会出现以下报错:
+如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 （ `<MyTitle title={123} />` ） 则会出现以下报错:
 ![type_error](https://github.com/PsChina/React/blob/master/images/type_error.png)
 
 ```
@@ -508,7 +508,7 @@ Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `My
 ```
 `不成功的属性类型：无效的 number 属性 title 提供给了 MyTitle 预期是 string。`
 
-如果没有传递参数，则会出现以下报错:
+如果没有传递参数（ `<MyTitle />` ），则会出现以下报错:
 ![no_val](https://github.com/PsChina/React/blob/master/images/no_val.png)
 
 ```

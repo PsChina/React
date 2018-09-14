@@ -9,7 +9,7 @@
 1. [组件的组合嵌套以及组件树](#demo03-组件的组合嵌套以及组件树)
 1. [this.props](#demo04-props-属性)
 1. [组件子节点](#demo05-react-组件子节点)
-1. [props 验证](#demo06-props-验证-propTypes)
+1. [props 验证](#demo06-props-验证-proptypes)
 1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
 1. [this.state](#demo08-react-组件状态)
 

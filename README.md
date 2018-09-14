@@ -234,7 +234,7 @@ module.exports = {
 ```
 ### 抽离公共 js 单独抽取 css 等等
 
-请查看weboack [plugin内容](https://github.com/PsChina/Vue/blob/master/webpack/s-Day7%203-webpack-plugin.md)
+请查看 [webpack plugin](https://github.com/PsChina/Vue/blob/master/webpack/s-Day7%203-webpack-plugin.md)
 
 
 ### scripts

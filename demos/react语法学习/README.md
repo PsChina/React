@@ -21,9 +21,9 @@ react 是以一个一个组件的方式来编写应用的
         }
     }
 ```
-上面的 render 方法是必须实现的它的返回值是 一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
+上面的 render 方法是必须实现的它的返回值是一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
 
-你不需要使用 new 关键字来获取组件，像使用html标签一样使用它, 就像:`<Component/>`。
+你不需要使用 new 关键字来获取组件，像使用 html 标签一样使用它, 就像:`<Component/>`。
 
 ## 什么是jsx
 react 推崇所有的功能都用js来实现包括 html css。
@@ -80,10 +80,9 @@ __jsx只能存在一个根元素__
 ```
 
 ### 扩展 
-
-如果理解了 jsx 其实就是一个js对象那么上面的代码可以这样写
-
 下面这个例子使用了 {} 表达式它用于在jsx中绑定js对象
+
+如果理解了 jsx 其实就是一个js对象那么上面的代码可以这样写：
 ```js
 const HelloWorld = <div>Hello World!</div>
 
@@ -95,7 +94,7 @@ render(){
     )
 }
 
-// 如果js变量是一个数组jsx将合并所有的数组成员
+// 如果 js 变量是一个数组 jsx 将合并所有的数组成员。
 const arr = [
     <div>Hello</div>,
     <div>World</div>,
@@ -109,7 +108,7 @@ render(){
     )
 }
 
-// 等价于
+// 等价于：
 
 render(){
     return (
@@ -120,7 +119,7 @@ render(){
     )
 }
 
-// 这意味着可以使用map来使得非 jsx数据变成jsx 数据
+// 这意味着可以使用map来使得非 jsx 数据变成 jsx 数据。
 
 const myData = ['hello', 'world']
 
@@ -158,11 +157,11 @@ class App extends React.Component{
     }
 }
 ```
-用以上这种驼峰方式绑定dom事件
+用以上这种驼峰方式绑定dom事件。
 
-__所有原生dom事件名改成驼峰写法即可绑定dom事件__
+__所有原生dom事件名改成驼峰写法即可绑定dom事件。__
 
-react内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有api不一致的情况
+react内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有api不一致的情况。
 
 例如
 
@@ -214,10 +213,10 @@ class App extends React.Component{
 
 # demo3
 
-组件的组合嵌套以及组件树
+组件的组合嵌套以及组件树。
 
 ```jsx
-// 定义头部组件
+// 定义头部组件。
 class Header extends React.Component{
     constructor() {
         super()
@@ -228,7 +227,7 @@ class Header extends React.Component{
         )
     }
 }
-// 定义主要内容
+// 定义主要内容。
 class Body extends React.Component{
     constructor() {
         super()
@@ -239,7 +238,7 @@ class Body extends React.Component{
         )
     }
 }
-// 定义脚部组件
+// 定义脚部组件。
 class Footer extends React.Component{
     constructor() {
         super()
@@ -250,7 +249,7 @@ class Footer extends React.Component{
         )
     }
 }
-// 定义根组件
+// 定义根组件。
 class App extends React.Component{
     constructor(){
         super()

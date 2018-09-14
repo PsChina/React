@@ -339,6 +339,8 @@ class App extends React.Component{
     }
 ```
 
+运行效果: （__未传递值得组件会显示默认值，传递了值的组件会显示传递的props__）
+
 ![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)
 
 __注意:__

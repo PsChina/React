@@ -21,7 +21,7 @@ class App extends React.Component{
     }
     render(){
         return (
-            <MyTitle />
+            <MyTitle title={123} />
         )
     }
 }

@@ -677,7 +677,7 @@ ReactDOM.render(<App />,document.getElementById('root'))
 
 而 `this.props` 描述组件的属性并且是稳定的和不可变的。
 
-所以，表单组件的 `value` 属性，如 <input> ， <textarea> 和 <option> ，不受任何用户输入的影响，如果想要访问或更新响应用户输入的值，可以使用 onChange 事件。
+所以，表单组件的 `value` 属性，如 <input>  ， <textarea> 和 <option>  ，不受任何用户输入的影响，如果想要访问或更新响应用户输入的值，可以使用 onChange 事件。
 
 ```jsx
 import React from 'react'

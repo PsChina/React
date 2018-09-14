@@ -278,9 +278,11 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 其中 App 这个标签是通过嵌套 Header 、 Body 、Footer 三个自定义标签组合而成的。
 
 效果如下:
+
 ![运行效果](https://github.com/PsChina/React/blob/master/images/ui01.png)
 
 他们也就构成了组件树:
+
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
 # demo04: props属性
@@ -346,6 +348,7 @@ npm i @babel/plugin-proposal-class-properties -D
 ```
 
 并且配置 webpack.config.js :
+
 ![config](https://github.com/PsChina/React/blob/master/images/static_plugins.png)
 
 # demo05: react 子节点 this.props.children
@@ -399,6 +402,7 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 所以使用 `React.Children.map` 能确保程序的正常运行
 
 运行效果:
+
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
 # demo06: 

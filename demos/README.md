@@ -4,16 +4,16 @@
 
 ## 目录
 
-1. [渲染 jsx](#demo01-Hello-World)
+1. [渲染 jsx](#demo01-Hello-world)
 1. [绑定事件和属性](#demo02-绑定事件和属性)
 1. [组件的组合嵌套以及组件树](#demo03-组件的组合嵌套以及组件树)
 1. [this.props](#demo04-props-属性)
 1. [组件子节点](#demo05-react-组件子节点)
-1. [props 验证](#demo06-props验证-PropTypes)
+1. [props 验证](#demo06-props验证-propTypes)
 1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
 1. [this.state](#demo08-react-组件状态)
 
-## demo01: Hello World
+## demo01: Hello world
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
 
@@ -458,7 +458,7 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
-## demo06: props验证 PropTypes
+## demo06: props验证 propTypes
 
 为了保证传递的参数的类型是确定的，以及参数是否为必传参数 React 提供了 PropTypes 供我们使用。
 

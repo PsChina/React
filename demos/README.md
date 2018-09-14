@@ -1,6 +1,6 @@
 我用的是手动搭建的react环境练习react语法，如果你觉得麻烦可以用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
 
-# demo01: Hello World
+## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
 
@@ -29,7 +29,7 @@ __需要注意的是原生标签小写,自定义组件标签需首字母大写�
 
 ![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
 
-## 什么是jsx
+### 什么是jsx
 react 推崇所有的功能都用 js 来实现，包括 html css。
 
 用 js 来表示 html 是可以办到的。
@@ -83,7 +83,7 @@ __jsx只能存在一个根元素。__
         }
 ```
 
-### 扩展 
+#### 扩展 
 下面这个例子使用了 {} 表达式它用于在 jsx 中绑定 js 对象。
 
 如果理解了 jsx 其实就是一个 js 对象那么上面的代码可以这样写：
@@ -138,7 +138,7 @@ render(){
 ```
 
 
-# demo02: 绑定事件和属性
+## demo02: 绑定事件和属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 
@@ -221,7 +221,7 @@ class App extends React.Component{
 
 ![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
-# demo03: 组件的组合嵌套以及组件树
+## demo03: 组件的组合嵌套以及组件树
 
 ```jsx
 // 定义头部组件。
@@ -287,9 +287,9 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
-# demo04: props 属性
+## demo04: props 属性
 
-## this.props.[attribute]
+### this.props.[attribute]
 
 组件可以拥有属性,可以使用 `this.props.[attribute]` 来获取，
 
@@ -297,7 +297,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 需要注意的是 __props是不可变的__ 如果尝试修改它的值，react 会抛出一个错误。
 
-## static defaultProps
+### static defaultProps
 
 为了防止出现 props 为空的情况 可以通过 `static defaultProps` 为 props 设置默认值。
 
@@ -365,7 +365,7 @@ HelloMessage.defaultProps = {
 }
 ```
 
-# demo05: react 子节点 this.props.children
+## demo05: react 子节点 this.props.children
 
 React 使用 `this.props.children` 来获得组件的子节点。
 
@@ -419,7 +419,7 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
-# demo06: 属性类型（props验证） PropTypes
+## demo06: 属性类型（props验证） PropTypes
 
 为了保证传递的参数的类型是确定的，以及参数是否为必传参数 React 提供了 PropTypes 供我们使用。
 
@@ -544,3 +544,8 @@ MyComponent.propTypes = {
 // 看到这么丰富的props验证器是不是感觉有种想用 typscript 的冲动?
 ```
 
+## demo07 在 react 中查找一个 dom 节点
+
+```jsx
+
+```

@@ -1,8 +1,6 @@
 我用的是手动搭建的react环境练习react语法，如果你觉得麻烦可以用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
 
-# demo01
-
-Hello World
+# demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个js库。
 
@@ -140,8 +138,7 @@ render(){
 ```
 
 
-# demo02
-dom 事件和属性
+# demo02: 绑定事件和属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 
@@ -224,9 +221,7 @@ class App extends React.Component{
 
 ![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
-# demo03
-
-组件的组合嵌套以及组件树。
+# demo03: 组件的组合嵌套以及组件树
 
 ```jsx
 // 定义头部组件。
@@ -292,8 +287,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
-# demo04
-props
+# demo04: props属性
 
 ## this.props.[attribute]
 
@@ -331,3 +325,55 @@ class App extends React.Component{
 ```
 
 ![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)
+
+# demo05: react 子节点 this.props.children
+
+React 使用 `this.props.children` 来获得组件的子节点。
+
+```jsx
+class NodeList extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        console.log(this.props.children)
+        return (
+            <ul>
+                { React.Children.map(this.props.children,item=><li>{item}</li>) }
+            </ul>
+        )
+    }
+}
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <NodeList>
+                <span>Hello</span>
+                <span>world</span>
+            </NodeList>
+        )
+    }
+}
+
+```
+
+### React.Children.map
+
+如果 children 是一个嵌套的对象或数组，它将被遍历。如果 children 是 null 或 undefined ，返回 null 或 undefined 而不是一个空数组。
+
+React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.children`。
+
+它的功能和 `Array.prototype.map` 一样。
+
+为什么不直接使用 map ? 像这样  `this.props.children.map(item=><li>{item}</li>)`。
+
+虽然这样写比较简洁但是由于 `this.props.children` 是一个不透明数据，也就是说你不知道它是不是数组，它可能是 `null` 或者 `undefined` 。
+
+所以使用 `React.Children.map` 能确保程序的正常运行
+
+运行效果:
+
+![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)

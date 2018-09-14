@@ -135,7 +135,7 @@ render(){
 
 
 # demo2
-dom 事件 和 属性
+dom 事件和属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 

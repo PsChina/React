@@ -512,7 +512,7 @@ Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `My
 ![no_val](https://github.com/PsChina/React/blob/master/images/no_val.png)
 
 ```
-checkPropTypes.js:22 Warning: Failed prop type: The prop `title` is marked as required in `MyTitle`, but its value is `undefined`.
+Warning: Failed prop type: The prop `title` is marked as required in `MyTitle`, but its value is `undefined`.
     in MyTitle (created by App)
     in App
 ```
@@ -724,4 +724,5 @@ ReactDOM.render(<Input />,document.getElementById('root'))
 ```
 
 运行效果:
+
 ![Input](https://github.com/PsChina/React/blob/master/images/ui09.gif)

@@ -1,6 +1,6 @@
 我用的是手动搭建的react环境练习react语法，如果你觉得麻烦可以用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
 
-# demo1
+# demo01
 
 Hello World
 
@@ -140,7 +140,7 @@ render(){
 ```
 
 
-# demo2
+# demo02
 dom 事件和属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
@@ -224,7 +224,7 @@ class App extends React.Component{
 
 ![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
-# demo3
+# demo03
 
 组件的组合嵌套以及组件树。
 
@@ -292,7 +292,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
-# demo4
+# demo04
 props
 
 ## this.props.[attribute]

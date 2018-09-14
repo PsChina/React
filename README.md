@@ -50,7 +50,7 @@ class App extends React.Component{
 
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
-在html 中需要一个元素来作为react dom树的根节点 当然你也可以直接用body。
+在 html 中需要一个元素来作为react dom树的根节点 当然你也可以直接用 body 。
 
 index.html
 ```html
@@ -111,47 +111,47 @@ module.exports = {
 }
 ```
 ### 注意
-webpack.config.js中增加了 bable env react html-laoder style-loader css-laoder url-loader等。
+webpack.config.js 中增加了 bable env react html-laoder style-loader css-laoder url-loader 等。
 
 所以我们需要把这些依赖下来下来。
 
-__下载 es6 转 es5、jsx 转 js 的工具。__
+__下载 es6 转 es5、jsx 转 js 的工具:__
 
 ```bash
 npm i @babel/core babel-loader @babel/preset-env @babel/preset-react -D
 ```
 
-__下载将 css 转 js 的工具。__
+__下载将 css 转 js 的工具:__
 
 ```bash
 npm i css-loader style-loader -D
 ```
 
-__下载将 html 引入 webpack 的工具。__
+__下载将 html 引入 webpack 的工具:__
 
 ```bash
 npm i html-loader -D
 ```
 
-__下载装载文件的工具。__
+__下载装载文件的工具:__
 
 ```bash
 npm i url-loader -D
 ```
 
-__下载装载 html 的工具。__ (将bundle.js自动加入html。)
+__下载装载 html 的工具:__ (将bundle.js自动加入html。)
 
 ```bash
 npm i html-webpack-plugin -D
 ```
 
-__下载启动本地服务的工具。__
+__下载启动本地服务的工具:__
 
 ```bash
 npm i webpack webpack-dev-server -D -g
 ```
 
-__下载 webpack 。__
+__下载 webpack :__
 
 ```bash
 npm i webpack -D

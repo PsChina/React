@@ -239,7 +239,7 @@ module.exports = {
 
 ### scripts
 
-如果觉得每次运行项目都需要输入 webpack-dev-server --mode development 太麻烦的话可以在 package.json 中的 scripts 字段下添加cmd命令。
+如果觉得每次运行项目都需要输入 webpack-dev-server --mode development 太麻烦的话可以在 package.json 中的 scripts 字段下添加 cmd 命令。
 
 package.json
 ```json
@@ -252,6 +252,6 @@ package.json
 ```
 就可以通过 `npm run dev` 来运行项目啦。
 
-### 学习react语法
+### 学习 react 语法
 
 进一步学习 [react 语法](https://github.com/PsChina/React/tree/master/demos)。

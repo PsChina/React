@@ -125,7 +125,7 @@ const myData = ['hello', 'world']
 render(){
     return (
         <div>
-            {myData.map( (item)=><div>{item}</div> )}
+            {myData.map( item=><div>{item}</div> )}
         </div>
     )
 }

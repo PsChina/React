@@ -671,3 +671,43 @@ ReactDOM.render(<App />,document.getElementById('root'))
 
 ![likebutton](https://github.com/PsChina/React/blob/master/images/likebutton.gif)
 
+## demo09: 表单
+
+根据 React 的设计哲学 `this.state` 描述组件的状态并且通过与用户交互改变它，
+
+而 `this.props` 描述组件的属性并且是稳定的和不可变的。
+
+所以，表单组件的 `value` 属性，如 <input> ， <textarea> 和 <option> ，不受任何用户输入的影响，如果想要访问或更新响应用户输入的值，可以使用 onChange 事件。
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Input  extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            value: 'hello'
+        }
+    }
+    handerChange(event){
+        this.setState({
+            value: event.target.value
+        })
+    }
+    render(){
+        const { value } = this.state
+        return (
+            <div>
+                <input type="text" value={ value } onChange={this.handerChange.bind(this)} />
+                <div>{value}</div>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Input />,document.getElementById('root'))
+```
+
+运行效果:
+![Input](https://github.com/PsChina/React/blob/master/images/ui09.gif)

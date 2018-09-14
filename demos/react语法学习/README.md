@@ -27,6 +27,10 @@ react 是以一个一个组件的方式来编写应用的。
 
 __需要注意的是原生标签小写,自定义组件标签需首字母大写。__
 
+运行效果:
+
+![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
+
 ## 什么是jsx
 react 推崇所有的功能都用js来实现包括 html css。
 
@@ -171,6 +175,9 @@ react内部对事件对象进行了封装是标准的事件对象不用考虑浏
 <input onFocus={()=>{console.log('on focus.')}} />
 ```
 
+点击 input 框的效果:
+![onfocus](https://github.com/PsChina/React/blob/master/images/onfocus.png)
+
 绑定属性:
 
 app.css
@@ -212,6 +219,10 @@ class App extends React.Component{
     }
 }
 ```
+
+运行效果:
+
+![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
 # demo3
 

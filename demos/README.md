@@ -4,7 +4,7 @@
 
 ## 目录
 
-1. [渲染 jsx](#demo01-Hello-World.)
+1. [渲染 jsx](#demo01-Hello World)
 1. [绑定事件和属性](#demo02-绑定事件和属性)
 1. [组件的组合嵌套以及组件树](#demo03-组件的组合嵌套以及组件树)
 1. [this.props](#demo04-props-属性)
@@ -13,7 +13,7 @@
 1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
 1. [this.state](#demo08-react-组件状态)
 
-## demo01: Hello World.
+## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
 

@@ -229,3 +229,6 @@ class App extends React.Component{
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
 
+效果如下:
+
+![ui效果](https://github.com/PsChina/React/tree/master/images/ui01.png)

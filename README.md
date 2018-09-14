@@ -30,7 +30,7 @@ npm i react react-dom -S
 
 新建项目主页 index.html 。
 
-新建webpack配置文件 webpack.config.js 。
+新建 webpack 配置文件 webpack.config.js 。
 
 app.js
 ```js

@@ -26,11 +26,11 @@ npm i react react-dom -S
 ```
 
 ## 4、
-新建react项目入口文件app.js。
+新建react项目入口文件 app.js 。
 
-新建项目主页index.html。
+新建项目主页 index.html 。
 
-新建webpack配置文件 webpack.config.js。
+新建webpack配置文件 webpack.config.js 。
 
 app.js
 ```js

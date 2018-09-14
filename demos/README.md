@@ -2,7 +2,7 @@
 
 # demo01: Hello World
 
-react 的编写需要引入 react 以及 react-dom 这个两个js库。
+react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
 
 react 是以一个一个组件的方式来编写应用的。
 

@@ -26,6 +26,7 @@ react 是以一个一个组件的方式来编写应用的。
 __需要注意的是原生标签小写,自定义组件标签需首字母大写。__
 
 运行效果:
+
 ![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
 
 ## 什么是jsx
@@ -217,6 +218,7 @@ class App extends React.Component{
 ```
 
 运行效果:
+
 ![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
 # demo03: 组件的组合嵌套以及组件树

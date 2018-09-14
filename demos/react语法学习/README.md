@@ -155,7 +155,7 @@ class App extends React.Component{
     }
 }
 ```
-除了 className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义的 className 和 htmlFor 来代替之外其他的html属性正常使用。
+__className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的html属性正常使用。__
 
 例如 style
 
@@ -228,7 +228,22 @@ class App extends React.Component{
 
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
+以上代码我们自定义了4个自定义标签 Header 、 Body 、Footer 、App 。
+
+其中 App 这个标签是通过嵌套 Header 、 Body 、Footer 三个自定义标签组合而成的。
+
+__需要注意的是原生标签小写,自定义标签需首字母大写。__
 
 效果如下:
 
 ![运行效果](https://github.com/PsChina/React/blob/master/images/ui01.png)
+
+他们也就构成了组件树:
+
+            App
+             |
+  ---------------------
+  |          |        |
+Header     Body     Footer
+
+![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)

@@ -295,7 +295,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 就像 `this.props.name` 来获取组件 `<HelloMessage name="John" />` 的 name 属性的值 John 一样。
 
-__需要注意的是props是不可变的__ 如果尝试修改它的值，react会抛出一个错误。
+需要注意的是 __props是不可变的__ 如果尝试修改它的值，react会抛出一个错误。
 
 ## static defaultProps
 

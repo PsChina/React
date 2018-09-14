@@ -335,7 +335,7 @@ class App extends React.Component{
 
 __注意:__
 
-静态属性是 js 的新特新需要安装 `@babel/plugin-proposal-class-properties`
+静态属性是 js 的新特新需要安装 `@babel/plugin-proposal-class-properties`。
 ```bash
 npm i @babel/plugin-proposal-class-properties -D
 ```

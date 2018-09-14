@@ -331,6 +331,14 @@ class App extends React.Component{
     }
 }
 ```
+
+上面的代码中为name添加默认值的代码:
+```js
+    static defaultProps = {
+        name: 'world'
+    }
+```
+
 ![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)
 
 __注意:__

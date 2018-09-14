@@ -118,7 +118,7 @@ render(){
     )
 }
 
-// 这意味着我们可以使用map来使得我们的非 jsx数据变成jsx 数据
+// 这意味着可以使用map来使得非 jsx数据变成jsx 数据
 
 const myData = ['hello', 'world']
 

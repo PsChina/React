@@ -25,6 +25,8 @@ react 是以一个一个组件的方式来编写应用的。
 
 你不需要使用 new 关键字来获取组件，像使用 html 标签一样使用它, 就像:`<Component/>`。
 
+__需要注意的是原生标签小写,自定义组件标签需首字母大写。__
+
 ## 什么是jsx
 react 推崇所有的功能都用js来实现包括 html css。
 
@@ -270,8 +272,6 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 以上代码我们自定义了4个自定义标签 Header 、 Body 、Footer 、App 。
 
 其中 App 这个标签是通过嵌套 Header 、 Body 、Footer 三个自定义标签组合而成的。
-
-__需要注意的是原生标签小写,自定义标签需首字母大写。__
 
 效果如下:
 

@@ -1,7 +1,7 @@
 # React
 这个仓库用于记录我的react使用笔记，以及和大家分享。
 
-1. [react语法](https://github.com/PsChina/React/tree/master/demos)
+1. [react语法](https://github.com/PsChina/React/tree/master/demos#目录)
 1. [react环境搭建](#react环境搭建)
 
 ## react环境搭建

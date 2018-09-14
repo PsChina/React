@@ -11,7 +11,7 @@
 1. [组件子节点](#demo05-react-组件子节点)
 1. [props 验证](#demo06-props验证-PropTypes)
 1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
-1. [this.state](#demo08-react-组件状态-this.state)
+1. [this.state](#demo08-react-组件状态)
 
 ## demo01: Hello World.
 
@@ -620,7 +620,7 @@ __如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，�
 
 ![refs](https://github.com/PsChina/React/blob/master/images/refs.gif)
 
-## demo08: react 组件状态 this.state
+## demo08: react 组件状态
 
 React 将组件视为状态机，同时用 `this.state` 保存组件状态，`this.setState()` 更新 `this.state` 和重新渲染组件。
 

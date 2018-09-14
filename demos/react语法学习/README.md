@@ -81,7 +81,7 @@ __jsx只能存在一个根元素__
 
 如果理解了 jsx 其实就是一个js对象那么上面的代码可以这样写
 
-下面这个例子涉及到 {} 表达式稍后讲解
+下面这个例子使用了 {} 表达式它用于在jsx中绑定js对象
 ```js
 const HelloWorld = <div>Hello World!</div>
 

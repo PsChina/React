@@ -1,27 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class ChildComponent extends React.Component{
-    constructor() {
+class HelloMessage extends React.Component {
+    constructor(){
         super()
     }
     render(){
         return (
-            <div>{this.props.text}</div>
+            <div>Hello {this.props.name}!</div>
         )
     }
 }
 
-
 class App extends React.Component{
     constructor(){
         super()
-        
     }
     render(){
         return (
             <div>
-                <ChildComponent />
+                <HelloMessage name="Pan shan shan"/>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class MyTitile extends React.Component{
+class MyTitle extends React.Component{
     constructor(){
         super()
     }
@@ -11,13 +11,14 @@ class MyTitile extends React.Component{
         )
     }
 }
+
 class App extends React.Component{
     constructor(){
         super()
     }
     render(){
         return (
-            <MyTitile title="标题"/>
+            <MyTitle title="标题"/>
         )
     }
 }

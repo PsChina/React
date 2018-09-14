@@ -353,6 +353,18 @@ npm i @babel/plugin-proposal-class-properties -D
 
 ![config](https://github.com/PsChina/React/blob/master/images/static_plugins.png)
 
+如果配置不成功可以使用 `HelloMessage.defaultProps` 代替 `static defaultProps` 。
+
+例如:
+```js
+class HelloMessage extends React.Component{
+    //...
+}
+HelloMessage.defaultProps = {
+    name: 'world'
+}
+```
+
 # demo05: react 子节点 this.props.children
 
 React 使用 `this.props.children` 来获得组件的子节点。
@@ -407,4 +419,5 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
-# demo06: 
+# demo06: 属性类型 PropTypes
+

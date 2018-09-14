@@ -362,11 +362,11 @@ class App extends React.Component{
 
 ### React.Children.map
 
-如果 children 是一个嵌套的对象或数组，它将被遍历。如果 children 是 null 或 undefined ，返回 null 或 undefined 而不是一个空数组。
-
 React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.children`。
 
-它的功能和 `Array.prototype.map` 一样。
+它的功能和 `Array.prototype.map` 几乎一样。
+
+`如果 children 是一个嵌套的对象或数组，它将被遍历。如果 children 是 null 或 undefined ，返回 null 或 undefined 而不是一个空数组。`
 
 为什么不直接使用 map ? 像这样  `this.props.children.map(item=><li>{item}</li>)`。
 

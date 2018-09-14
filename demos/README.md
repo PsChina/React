@@ -26,7 +26,6 @@ react 是以一个一个组件的方式来编写应用的。
 __需要注意的是原生标签小写,自定义组件标签需首字母大写。__
 
 运行效果:
-
 ![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
 
 ## 什么是jsx
@@ -218,7 +217,6 @@ class App extends React.Component{
 ```
 
 运行效果:
-
 ![orangeHelloWorld](https://github.com/PsChina/React/blob/master/images/orangeHelloWorld.png)
 
 # demo03: 组件的组合嵌套以及组件树
@@ -280,11 +278,9 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 其中 App 这个标签是通过嵌套 Header 、 Body 、Footer 三个自定义标签组合而成的。
 
 效果如下:
-
 ![运行效果](https://github.com/PsChina/React/blob/master/images/ui01.png)
 
 他们也就构成了组件树:
-
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)
 
 # demo04: props属性
@@ -340,7 +336,6 @@ class App extends React.Component{
 ```
 
 运行效果: （__未传递值得组件会显示默认值，传递了值的组件会显示传递的props__）
-
 ![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)
 
 __注意:__
@@ -351,7 +346,6 @@ npm i @babel/plugin-proposal-class-properties -D
 ```
 
 并且配置 webpack.config.js :
-
 ![config](https://github.com/PsChina/React/blob/master/images/static_plugins.png)
 
 # demo05: react 子节点 this.props.children
@@ -405,7 +399,6 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 所以使用 `React.Children.map` 能确保程序的正常运行
 
 运行效果:
-
 ![this.props.children](https://github.com/PsChina/React/blob/master/images/ui03.png)
 
 # demo06: 

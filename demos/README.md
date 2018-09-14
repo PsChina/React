@@ -30,7 +30,7 @@ __需要注意的是原生标签小写,自定义组件标签需首字母大写�
 ![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
 
 ## 什么是jsx
-react 推崇所有的功能都用js来实现包括 html css。
+react 推崇所有的功能都用 js 来实现，包括 html css。
 
 用js来表示html是可以办到的。
 

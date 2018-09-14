@@ -240,10 +240,4 @@ __需要注意的是原生标签小写,自定义标签需首字母大写。__
 
 他们也就构成了组件树:
 
-            App
-             |
-  ---------------------
-  |          |        |
-Header     Body     Footer
-
 ![组件树](https://github.com/PsChina/React/blob/master/images/image01.png)

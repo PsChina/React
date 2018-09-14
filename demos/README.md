@@ -2,6 +2,17 @@
 
 这个文档是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记。
 
+# 目录
+
+1. [渲染 jsx](#demo01-Hello-World)
+1. [绑定事件和属性](#demo02-绑定事件和属性)
+1. [组件的组合嵌套以及组件树](#demo03-组件的组合嵌套以及组件树)
+1. [this.props](#demo04-props-属性)
+1. [组件子节点](#demo05-react-子节点-this.props.children)
+1. [props 验证](#demo06-属性类型（props验证）-PropTypes)
+1. [操作 dom](#demo07-在-react-中查找一个-dom-节点)
+1. [this.state](#demo08: react 组件状态 this.state)
+
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -661,3 +672,4 @@ ReactDOM.render(<App />,document.getElementById('root'))
 运行效果:
 
 ![likebutton](https://github.com/PsChina/React/blob/master/images/likebutton.gif)
+

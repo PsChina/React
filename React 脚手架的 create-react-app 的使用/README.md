@@ -50,6 +50,8 @@ npm i
 
 [nrm](https://github.com/PsChina/angularJS/blob/master/nrm/nrm.md) 是一个源管理工具
 
+__到这一步基本环境已经搭建完成可以通过 npm start 打开项目__
+
 ## 五、打开 webpack 配置项
 
 安装完依赖以后我们会发现它与 vue-cli 不一样看不到任何与 webpack 相关的配置文件

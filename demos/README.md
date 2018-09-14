@@ -1,5 +1,7 @@
 我用的是手动搭建的react环境练习react语法，如果你觉得麻烦可以用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
 
+这个文档是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记。
+
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -570,7 +572,7 @@ MyComponent.propTypes = {
 // 看到这么丰富的props验证器是不是感觉有种想用 typscript 的冲动?
 ```
 
-## demo07 在 react 中查找一个 dom 节点
+## demo07: 在 react 中查找一个 dom 节点
 
 ```jsx
 import React from 'react'
@@ -606,3 +608,56 @@ __如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，�
 效果:
 
 ![refs](https://github.com/PsChina/React/blob/master/images/refs.gif)
+
+## demo08: react 组件状态 this.state
+
+React 将组件视为状态机，同时用 `this.state` 保存组件状态，`this.setState()` 更新 `this.state` 和重新渲染组件。
+
+#### 实例：(点赞按钮)
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './iconfont/iconfont.css'
+
+class LikeButton extends React.Component {
+    constructor(){
+        super()
+        this.state = { // 初始化state
+            like: false
+        }
+    }
+    handleClick(){
+        this.setState({
+            like:!this.state.like
+        })
+    }
+    render(){
+        return (
+            <div onClick={this.handleClick.bind(this)}>
+              <span style={ { color: this.state.like ? 'red' : 'black' } } className="iconfont icon-zan"></span>
+              <span>{ this.state.like ? '取消':'赞' }</span>
+            </div>
+        )
+    }
+}
+
+class App  extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <div>
+                <LikeButton/>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App />,document.getElementById('root'))
+```
+
+运行效果:
+
+![likebutton](https://github.com/PsChina/React/blob/master/images/likebutton.gif)

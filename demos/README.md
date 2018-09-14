@@ -498,7 +498,7 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![right](https://github.com/PsChina/React/blob/master/images/right.png)
 
-如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 (`<MyTitle title={123} />`) 则会出现以下报错:
+如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 ( `<MyTitle title={123} />` ) 则会出现以下报错:
 ![type_error](https://github.com/PsChina/React/blob/master/images/type_error.png)
 
 ```

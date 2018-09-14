@@ -23,7 +23,7 @@ react 是以一个一个组件的方式来编写应用的。
 ```
 上面的 render 方法是必须实现的它的返回值是一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
 
-你不需要使用 new 关键字来获取组件，像使用 html 标签一样使用它, 就像:`<Component/>`。
+你不需要使用 new 关键字来获取组件，像使用 html 标签一样使用它, 就像: `<Component/>` 。
 
 __需要注意的是原生标签小写,自定义组件标签需首字母大写。__
 
@@ -284,5 +284,39 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 # demo4
 props
 
-react
+## this.props.[attribute]
 
+组件可以拥有属性,可以使用 `this.props.[attribute]` 来获取，
+
+就像 `this.props.name` 来获取组件 `<HelloMessage name="John" />` 的 name 属性的值 John 一样。
+
+__需要注意的是props是不可变的__ 如果尝试修改它的值，react会抛出一个错误。
+
+
+```jsx
+class HelloMessage extends React.Component {
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <div>Hello {this.props.name}!</div>
+        )
+    }
+}
+
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <div>
+                <HelloMessage name="Pan shan shan"/>
+            </div>
+        )
+    }
+}
+```
+
+![Hello Pan shanshan!](https://github.com/PsChina/React/blob/master/images/ui02.png)

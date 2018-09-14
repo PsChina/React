@@ -19,7 +19,7 @@ react不像jquery一样能通过src直接使用它需要一系列的辅助工具
 
 ## 3、
 
-安装react、react-dom包。
+安装 react、react-dom 包。
 
 ```bash
 npm i react react-dom -S
@@ -121,37 +121,37 @@ __下载 es6 转 es5、jsx 转 js 的工具。__
 npm i @babel/core babel-loader @babel/preset-env @babel/preset-react -D
 ```
 
-__下载 将 css 转 js 的工具。__
+__下载将 css 转 js 的工具。__
 
 ```bash
 npm i css-loader style-loader -D
 ```
 
-__下载 将html引入 webpack 的工具。__
+__下载将 html 引入 webpack 的工具。__
 
 ```bash
 npm i html-loader -D
 ```
 
-__下载 装载文件 的工具。__
+__下载装载文件的工具。__
 
 ```bash
 npm i url-loader -D
 ```
 
-__下载 装载 html 的工具。__ (将bundle.js自动加入html。)
+__下载装载 html 的工具。__ (将bundle.js自动加入html。)
 
 ```bash
 npm i html-webpack-plugin -D
 ```
 
-__下载 启动本地服务 的工具。__
+__下载启动本地服务的工具。__
 
 ```bash
 npm i webpack webpack-dev-server -D -g
 ```
 
-__下载 webpack。__
+__下载 webpack 。__
 
 ```bash
 npm i webpack -D

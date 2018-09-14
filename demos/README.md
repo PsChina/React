@@ -8,16 +8,21 @@ react 是以一个一个组件的方式来编写应用的。
 
 它定义组件的方式是：
 ```jsx
-    class Component extends React.Component{
-        constructor(){
-            super()
-        }
-        render(){
-            return (
-                <div>Hello World!</div>
-            )
-        }
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Component extends React.Component{
+    constructor(){
+        super()
     }
+    render(){
+        return (
+            <div>Hello World!</div>
+        )
+    }
+}
+
+ReactDOM.render(<Component />,document.getElementById('root'))
 ```
 上面的 render 方法是必须实现的它的返回值是一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
 
@@ -146,6 +151,9 @@ __react中使用 {}  表达式在 jsx 中绑定 js 变量。__
 
 绑定事件:
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 class App extends React.Component{
     constructor(){
         super()
@@ -159,6 +167,8 @@ class App extends React.Component{
         )
     }
 }
+
+ReactDOM.render(<App />,document.getElementById('root'))
 ```
 用以上这种驼峰方式绑定 dom 事件。
 
@@ -186,7 +196,10 @@ app.css
 
 app.jsx
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
 import './app.css'
+
 const myClass = 'orange'
 
 class App extends React.Component{
@@ -199,6 +212,8 @@ class App extends React.Component{
         )
     }
 }
+
+ReactDOM.render(<App />,document.getElementById('root'))
 ```
 __className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的 html 属性正常使用。__
 
@@ -224,6 +239,9 @@ class App extends React.Component{
 ## demo03: 组件的组合嵌套以及组件树
 
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 // 定义头部组件。
 class Header extends React.Component{
     constructor() {
@@ -273,7 +291,7 @@ class App extends React.Component{
     }
 }
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+ReactDOM.render(<App />,document.getElementById('root'))
 ```
 以上代码我们自定义了4个自定义标签 Header 、 Body 、Footer 、App 。
 
@@ -302,6 +320,8 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 为了防止出现 props 为空的情况 可以通过 `static defaultProps` 为 props 设置默认值。
 
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 class HelloMessage extends React.Component {
     static defaultProps = {
@@ -330,6 +350,8 @@ class App extends React.Component{
         )
     }
 }
+
+ReactDOM.render(<App />,document.getElementById('root'))
 ```
 
 上面的代码中为 name 添加默认值的代码:
@@ -370,6 +392,9 @@ HelloMessage.defaultProps = {
 React 使用 `this.props.children` 来获得组件的子节点。
 
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 class NodeList extends React.Component{
     constructor(){
         super()
@@ -397,6 +422,7 @@ class App extends React.Component{
     }
 }
 
+ReactDOM.render(<App />,document.getElementById('root'))
 ```
 
 ### React.Children.map
@@ -547,5 +573,36 @@ MyComponent.propTypes = {
 ## demo07 在 react 中查找一个 dom 节点
 
 ```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+class MyComponent  extends React.Component{
+    constructor(){
+        super()
+    }
+    handerClick(){
+        this.refs.myInput.focus()
+    }
+    render(){
+        return (
+            <div>
+                <div>
+                    <input ref="myInput" type="text"/>
+                </div> 
+                <button onClick={this.handerClick.bind(this)}>Click here to focus the input</button>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<MyComponent />,document.getElementById('root'))
 ```
+__如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，然后可以在组件内部的任意位置通过 this.refs.[value] 来获取。__
+
+上面的代码中 click 函数内使用了 this 关键字，注意在绑定 click 函数的时候使用`bind`函数绑定`this`。
+
+这样点击按钮置之后就能操作 input 使得它获得焦点了。
+
+效果:
+
+![refs](https://github.com/PsChina/React/blob/master/images/refs.gif)

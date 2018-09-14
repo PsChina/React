@@ -96,7 +96,7 @@ const HelloWorld = <div>Hello World!</div>
 
 
 # demo2
-dom事件 和 属性
+dom 事件 和 属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 
@@ -172,4 +172,60 @@ class App extends React.Component{
 }
 ```
 
+# demo3
+
+组件的组合嵌套以及组件树
+
+```jsx
+// 定义头部组件
+class Header extends React.Component{
+    constructor() {
+        super()
+    }
+    render(){
+        return (
+            <h1>Header</h1>
+        )
+    }
+}
+// 定义主要内容
+class Body extends React.Component{
+    constructor() {
+        super()
+    }
+    render(){
+        return (
+            <div>React学习笔记</div>
+        )
+    }
+}
+// 定义脚部组件
+class Footer extends React.Component{
+    constructor() {
+        super()
+    }
+    render(){
+        return (
+            <div>Footer</div>
+        )
+    }
+}
+// 定义根组件
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <div>
+                <Header />
+                <Body />
+                <Footer />
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App/>,document.getElementById('root'))
+```
 

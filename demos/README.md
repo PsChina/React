@@ -1,5 +1,3 @@
-我用的是手动搭建的react环境练习react语法，如果你觉得麻烦可以用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
-
 这个文档是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记。
 
 ## 目录

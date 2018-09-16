@@ -11,6 +11,7 @@
 1. [操作 dom](#demo07-在-react-组件中查找一个-dom-节点)
 1. [this.state](#demo08-react-组件状态)
 1. [form表单](#demo09-表单)
+1. [组件生命周期](#demo10-组件生命周期)
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -726,3 +727,59 @@ ReactDOM.render(<Input />,document.getElementById('root'))
 运行效果:
 
 ![Input](https://github.com/PsChina/React/blob/master/images/ui09.gif)
+
+# demo10: 组件生命周期
+
+组件的生命周期主要包括三部分：`插入dom`、`更新`、`从dom中卸载`，React 提供进入这几部分的钩子函数。 `will` 函数将会在某个动作开始前调用，`did` 函数将会在某个动作发生后调用。
+
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Hello extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            opacity: 1
+        }
+    }
+    componentDidMount(){
+        let {opacity} = this.state
+        this.timer = setInterval(()=>{
+            opacity -= .5
+            if(opacity<0.1){
+                opacity = 1
+            }
+            this.setState({
+                opacity,
+            })
+        },100)
+    }
+    render(){
+        return (
+            <div style={ {opacity:this.state.opacity} }>Hello {this.props.name}</div>
+        )
+    }
+}
+
+
+ReactDOM.render(<Hello name="World"/>,document.getElementById('root'))
+```
+
+以下是 React 组件生命周期函数的全部清单:
+
+- **componentWillMount()**: __组件即将挂载__ 仅触发一次，在初始渲染之前调用。对消息监听器进行连接的好地方，`this.setState` 在这里无法使用。
+
+- **componentDidMount()**: __组件已经挂载__ 仅触发一次，在初始渲染之后调用。可以在这里使用 React 提供的获取 dom 节点的函数。
+
+- **componentWillUpdate(object nextProps, object nextState)**: __组将即将更新__ 在组件的更新被发送到 dom 之后触发。
+
+- **componentDidUpdate(object prevProps, object prevState)**: __组件已经更新__ 在组件的更新被刷新到 dom 之后立即调用。初始渲染不会触发该方法。当组件已经更新时可以使用该函数作为一个操作 dom 的机会。
+
+- **componentWillUnmount()**: __组件即将卸载__ 在组件从 dom 卸载之前立即触发，消除消息监听器，或者做一般性的清理的好地方。
+
+- **componentWillReceiveProps(object nextProps)**: __组件将要接收属性__ 当一个组件接收到新的属性值时触发，你也许想要根据不同的`nextProps.[prop]` 做 `this.setState` 。
+
+- **shouldComponentUpdate(object nextProps, object nextState)**: __组件按需更新__ 在接收新的属性值 `props` 或者状态 `states` 时触发。如果你知道这是一个不必要的更新你可以 `return false` 否则 `return true`。
+

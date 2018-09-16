@@ -769,17 +769,17 @@ ReactDOM.render(<Hello name="World"/>,document.getElementById('root'))
 
 以下是 React 组件生命周期函数的全部清单:
 
-- **componentWillMount()**: `组件即将挂载` 仅触发一次，在初始渲染之前调用。对消息监听器进行连接的好地方，`this.setState` 在这里无法使用。
+- **componentWillMount()**: [组件即将挂载] 仅触发一次，在初始渲染之前调用。对消息监听器进行连接的好地方，`this.setState` 在这里无法使用。
 
-- **componentDidMount()**: `组件已经挂载` 仅触发一次，在初始渲染之后调用。可以在这里使用 React 提供的获取 dom 节点的函数。
+- **componentDidMount()**: [组件已经挂载] 仅触发一次，在初始渲染之后调用。可以在这里使用 React 提供的获取 dom 节点的函数。
 
-- **componentWillUpdate(object nextProps, object nextState)**: `组将即将更新` 在组件的更新被发送到 dom 之后触发。
+- **componentWillUpdate(object nextProps, object nextState)**: [组将即将更新] 在组件的更新被发送到 dom 之后触发。
 
-- **componentDidUpdate(object prevProps, object prevState)**: `组件已经更新` 在组件的更新被刷新到 dom 之后立即调用。初始渲染不会触发该方法。当组件已经更新时可以使用该函数作为一个操作 dom 的机会。
+- **componentDidUpdate(object prevProps, object prevState)**: [组件已经更新] 在组件的更新被刷新到 dom 之后立即调用。初始渲染不会触发该方法。当组件已经更新时可以使用该函数作为一个操作 dom 的机会。
 
-- **componentWillUnmount()**: `组件即将卸载` 在组件从 dom 卸载之前立即触发，消除消息监听器，或者做一般性的清理的好地方。
+- **componentWillUnmount()**: [组件即将卸载] 在组件从 dom 卸载之前立即触发，消除消息监听器，或者做一般性的清理的好地方。
 
-- **componentWillReceiveProps(object nextProps)**: `组件将要接收属性` 当一个组件接收到新的属性值时触发，你也许想要根据不同的`nextProps.[prop]` 做 `this.setState` 。
+- **componentWillReceiveProps(object nextProps)**: [组件将要接收属性] 当一个组件接收到新的属性值时触发，你也许想要根据不同的`nextProps.[prop]` 做 `this.setState` 。
 
-- **shouldComponentUpdate(object nextProps, object nextState)**: `组件按需更新` 在接收新的属性值 `props` 或者状态 `states` 时触发。如果你知道这是一个不必要的更新你可以 `return false` 否则 `return true`。
+- **shouldComponentUpdate(object nextProps, object nextState)**: [组件按需更新] 在接收新的属性值 `props` 或者状态 `states` 时触发。如果你知道这是一个不必要的更新你可以 `return false` 否则 `return true`。
 

@@ -5,13 +5,14 @@
 1. [渲染 jsx](#demo01-hello-world)
 1. [绑定事件和属性](#demo02-绑定事件和属性)
 1. [组件的组合嵌套以及组件树](#demo03-组件的组合嵌套以及组件树)
-1. [this.props](#demo04-props-属性)
+1. [组件的属性 props](#demo04-props-属性)
 1. [组件子节点](#demo05-react-组件子节点)
-1. [props 验证](#demo06-props-验证-proptypes)
+1. [验证 props](#demo06-props-验证-proptypes)
 1. [操作 dom](#demo07-在-react-组件中查找一个-dom-节点)
-1. [this.state](#demo08-react-组件状态)
-1. [form表单](#demo09-表单)
+1. [组件的状态 state](#demo08-react-组件状态)
+1. [Form 表单](#demo09-表单)
 1. [组件生命周期](#demo10-组件生命周期)
+1. [Ajax](#ajax)
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -783,3 +784,36 @@ ReactDOM.render(<Hello name="World"/>,document.getElementById('root'))
 
 - **shouldComponentUpdate(object nextProps, object nextState)**: [组件按需更新] 在接收新的属性值 `props` 或者状态 `states` 时触发。如果你知道这是一个不必要的更新你可以 `return false` 否则 `return true`。
 
+## Ajax
+
+如何从服务器或者一个接口提供者获取组件数据？答案是使用 Ajax 在 `componentDidMount` 的事件处理程序中获取数据。当服务器响应到达时，使用 `this.setState()` 存储数据，以触发UI的重新渲染。
+
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class AjaxDemo extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            fruits: []
+        }
+    }
+    componentDidMount(){
+
+    }
+    render(){
+        return (
+            <div>
+                <div>水果清单</div>
+                <ul>
+                    { this.fruits.map(item=><li>{item}</li>) }
+                </ul>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<AjaxDemo url="" />, document.getElementById('root'))
+```

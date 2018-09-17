@@ -1,4 +1,4 @@
-这个文档是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记。
+这个文档大部分是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记，还有一些[react 小书](http://huziketang.mangojuice.top/books/react/)的内容。
 
 ## 目录
 
@@ -13,6 +13,8 @@
 1. [Form 表单](#demo09-表单)
 1. [组件生命周期](#demo10-组件生命周期)
 1. [Ajax](#demo11-ajax)
+1. [组件间通讯之状态提升](#demo12-状态提升)
+
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -847,3 +849,115 @@ class AjaxDemo extends React.Component {
 
 ReactDOM.render(<AjaxDemo url="https://api.github.com/repos" />, document.getElementById('root'))
 ```
+
+## demo12: 状态提升
+
+在react中是单向数据流的设计, 即只有父组件可以传递数据给子组件,而没有子组件传递数据给父组件的概念. 以正确的技术说明，是拥有者组件可以设置被拥有者组件中的资料，也就是主人与仆人的关系。
+
+那么子组件要传递数据给父组件该如何沟通呢?
+
+换句话说就是, react 如何将子组件的值暴露让父组件获取到?
+
+可以采用一种迂回的方法, 在父组件中设置一个方法(函数), 将其通过props传递给子组件, 然后在子组件中更新state的状态,并调用父组件中传过来的方法, 将state数据作为参数传递给父组件. 这样, 改变父组件的状态，从而改变受父组件控制的所有子组件的状态. 这就是状态提升的概念. 用官方的原话就是: ‘共享 state(状态) 是通过将其移动到需要它的组件的最接近的共同祖先组件来实现的。 这被称为“状态提升(Lifting State Up)’。
+
+与 demo09 类似，不过 demo09 过于简单。
+
+例如:
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Input extends React.Component {
+    constructor(){
+        super()
+    }
+    handerChange(event){ // onchange 事件会触发 handerChange 回调。
+        this.props.updataMessge(event.target.value) // 回调函数内部调用父组件传递过来的函数更新 message 。
+    }
+    render(){
+        return (
+            <input value={this.props.message} onChange={this.handerChange.bind(this)}/>
+        )
+    }
+}
+
+class View extends React.Component {
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <div>Input value:{this.props.message}</div>
+        )
+    }
+}
+
+class App extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            message: 'Hello' // 共享状态 message
+        }
+    }
+    changeMessage(message){ // 定义修改 message 的方法
+        this.setState({
+            message
+        })
+    }
+    render(){
+        // 将 message 分别传递给 input 和 view 两个子组件，将修改 message 的函数传递给 input 。 
+        return (
+            <div>
+                <Input message={this.state.message} updataMessge={this.changeMessage.bind(this)}/> 
+                <View message={this.state.message}/>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+运行效果:
+
+![状态提升](https://github.com/PsChina/React/blob/master/images/ui12.gif)
+
+### 相关知识
+
+由于 `this.props` 是不可变的所以不能直接修改 `props`。
+
+也就是说必须通过 `this.setState` 来修改父组件的 `state`。
+
+这涉及到两种修改数据的2种方式 `直接修改` `替换修改` , React 采用的是 `替换修改`。
+
+直接修改数据:
+```js
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+```
+
+替换修改数据:
+```js
+var player = {score: 1, name: 'Jeff'};
+
+var newPlayer = Object.assign({}, player, {score: 2});
+// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+
+// 或者使用最新的对象分隔符语法，你可以这么写：
+// var newPlayer = {...player, score: 2};
+```
+
+两种方式的结果是一样的，但是第二种并没有改变之前已有的数据。通过这样的方式，我们可以得到以下几点好处：
+
+#### 很轻松地实现 撤销/重做以及时间旅行
+运用不可变性原则可以让我们很容易实现一些复杂的功能。例如我们在这个教程中会实现的，通过点击列表中的某一项直接返回当某一步棋时的状态。不改变已有的数据内容可以让我们在需要的时候随时切换回历史数据。
+
+#### 记录变化
+在我们直接修改一个对象的内容之后，是很难判断它哪里发生了改变的。我们想要判断一个对象的改变，必须拿当前的对象和改变之前的对象相互比较，遍历整个对象树，比较每一个值，这样的操作复杂度是非常高的。
+
+而运用不可变性原则之后则要轻松得多。因为我们每次都是返回一个新的对象，所以只要判断这个对象被替换了，那么其中数据肯定是改变了的。
+
+在 React 当中判定何时重新渲染
+运用不可变性原则给 React 带来最大的好处是，既然我们现在可以很方便地判断对象数据是否发生改变了，那么也就很好决定何时根据数据的改变重新渲染组件。尤其是当我们编写的都属于 纯组件 pure components 的时候，这种好处的效果更为明显。
+

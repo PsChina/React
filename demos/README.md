@@ -818,7 +818,7 @@ class AjaxDemo extends React.Component {
             repositorie:event.target.value
         })
     }
-    searchUrlAddresss() {
+    getAddressData() {
         axios({
             url: `${this.props.url}/${this.state.author}/${this.state.repositorie}`,
             method: 'GET'
@@ -830,7 +830,7 @@ class AjaxDemo extends React.Component {
         })
     }
     componentDidMount() {
-        this.searchUrlAddresss()
+        this.getAddressData()
     }
     render(){
         return (
@@ -838,7 +838,7 @@ class AjaxDemo extends React.Component {
                 <div>输入作者和仓库名查询仓库ssh地址:</div>
                 <input type="text" placeholder="作者" value={this.state.author} onChange={this.setAuthor.bind(this)}/>
                 <input type="text" placeholder="仓库名" value={this.state.repositorie} onChange={this.setRepositorieName.bind(this)}/>
-                <button onClick={this.searchUrlAddresss.bind(this)}>查询</button>
+                <button onClick={this.getAddressData.bind(this)}>查询</button>
                 <div>结果:{this.state.ssh_url}</div>
             </div>
         )

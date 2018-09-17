@@ -12,7 +12,7 @@
 1. [组件的状态 state](#demo08-react-组件状态)
 1. [Form 表单](#demo09-表单)
 1. [组件生命周期](#demo10-组件生命周期)
-1. [Ajax](#ajax)
+1. [Ajax](#demo11-ajax)
 ## demo01: Hello World
 
 react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
@@ -784,36 +784,66 @@ ReactDOM.render(<Hello name="World"/>,document.getElementById('root'))
 
 - **shouldComponentUpdate(object nextProps, object nextState)**: [组件按需更新] 在接收新的属性值 `props` 或者状态 `states` 时触发。如果你知道这是一个不必要的更新你可以 `return false` 否则 `return true`。
 
-## Ajax
+## demo11: Ajax
 
 如何从服务器或者一个接口提供者获取组件数据？答案是使用 Ajax 在 `componentDidMount` 的事件处理程序中获取数据。当服务器响应到达时，使用 `this.setState()` 存储数据，以触发UI的重新渲染。
 
+axios 是一个代替$.ajax的库。
+```bash
+npm i axios -S
+```
 
+以下功能是一个通过输入作者名称和仓库名称查询仓库ssh地址的demo
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
 
 class AjaxDemo extends React.Component {
     constructor(){
         super()
-        this.state = {
-            fruits: []
+        this.state = { //默认state
+            ssh_url: '',
+            author: 'PsChina',
+            repositorie: 'React'
         }
     }
-    componentDidMount(){
-
+    setAuthor(event){
+        this.setState({
+            author:event.target.value
+        })
+    }
+    setRepositorieName(event){
+        this.setState({
+            repositorie:event.target.value
+        })
+    }
+    searchUrlAddresss() {
+        axios({
+            url: `${this.props.url}/${this.state.author}/${this.state.repositorie}`,
+            method: 'GET'
+        }).then(res=>{
+            const {ssh_url} = res.data
+            this.setState({
+                ssh_url
+            })
+        })
+    }
+    componentDidMount() {
+        this.searchUrlAddresss()
     }
     render(){
         return (
             <div>
-                <div>水果清单</div>
-                <ul>
-                    { this.fruits.map(item=><li>{item}</li>) }
-                </ul>
+                <div>输入作者和仓库名查询仓库ssh地址:</div>
+                <input type="text" placeholder="作者" value={this.state.author} onChange={this.setAuthor.bind(this)}/>
+                <input type="text" placeholder="仓库名" value={this.state.repositorie} onChange={this.setRepositorieName.bind(this)}/>
+                <button onClick={this.searchUrlAddresss.bind(this)}>查询</button>
+                <div>结果:{this.state.ssh_url}</div>
             </div>
         )
     }
 }
 
-ReactDOM.render(<AjaxDemo url="" />, document.getElementById('root'))
+ReactDOM.render(<AjaxDemo url="https://api.github.com/repos" />, document.getElementById('root'))
 ```

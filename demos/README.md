@@ -928,7 +928,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 也就是说必须通过 `this.setState` 来修改父组件的 `state`。
 
-这涉及到两种修改数据的2种方式 `直接修改` `替换修改` , React 采用的是 `替换修改`。
+这涉及到两种修改数据的两种方式 `直接修改` `替换修改` , React 采用的是 `替换修改`。
 
 直接修改数据:
 ```js

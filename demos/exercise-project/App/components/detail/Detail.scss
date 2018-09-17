@@ -1,0 +1,24 @@
+.detail{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    background: white;
+}
+
+.detail-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-item{
+    flex: 1;
+    text-align: center;
+}

@@ -34,7 +34,6 @@ function noop (){
 }
 StaffList.defaultProps={
     staffList:[],
-    staffList: noop,
     updata: noop,
     toggleDetail: noop,
     updataCurrentStaff: noop

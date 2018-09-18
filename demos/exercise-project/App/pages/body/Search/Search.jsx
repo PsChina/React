@@ -1,6 +1,7 @@
 import React from 'react'
 import './Search.scss'
 import Select from '../../../components/Select/Select.jsx'
+import FormCloemn from '../../../components/FormColumn/FormColumn.jsx'
 
 class Search extends React.Component{
     constructor(){
@@ -36,22 +37,22 @@ class Search extends React.Component{
         return(
             <div className="search-bar">
                 <input type="text" value={this.state.searchVal} placeholder={this.state.placeholder} onChange={this.props.onSearch}/>
-                <label htmlFor="staffPick">
-                   人员筛选: <Select 
-                                id="staffPick" 
-                                options={this.state.staffTypes} 
-                                value={this.state.currentType} 
-                                onChange={this.props.changeSortType}
-                            />
-                </label>
-                <label htmlFor="sortsOrders">
-                   排列方式：<Select 
-                                id="sortsOrders" 
-                                options={this.state.sortsOrders} 
-                                value={this.state.currentSortWay} 
-                                onChange={this.props.changeSortWay}
-                            />
-                </label>
+                <FormCloemn label="人员筛选：">
+                    <Select 
+                        id="人员筛选：" 
+                        options={this.state.staffTypes} 
+                        value={this.state.currentType} 
+                        onChange={this.props.changeSortType}
+                    /> 
+                </FormCloemn>
+                <FormCloemn label="排列方式：">
+                    <Select 
+                        id="排列方式：" 
+                        options={this.state.sortsOrders} 
+                        value={this.state.currentSortWay} 
+                        onChange={this.props.changeSortWay}
+                    />
+                </FormCloemn>
             </div>
         )
     }

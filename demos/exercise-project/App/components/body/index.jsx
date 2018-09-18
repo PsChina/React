@@ -5,7 +5,14 @@ import StaffTable from './StaffTable/StaffTable.jsx'
 
 const Body = props => (
     <div className="app-body">
-        <Search />
+        <Search 
+            searchVal={props.searchVal}
+            currentType={props.currentType}
+            currentSortWay={props.currentSortWay}
+            changeSortType={props.changeSortType}
+            changeSortWay={props.changeSortWay}
+            onSearch={props.onSearch}
+        />
         <StaffTable 
             titles={props.titles} 
             staffList={props.staffList} 
@@ -23,9 +30,16 @@ function noop (){
 Body.defaultProps = {
     titles: [],
     staffList: [],
+    placeholder: 'Search...',
+    searchVal: '',
+    currentType: '全部',
+    currentSortWay: '身份',
     updata: noop,
     toggleDetail: noop,
-    updataStaffList: noop
+    updataStaffList: noop,
+    changeSortType: noop,
+    changeSortWay: noop,
+    onSearch: noop,
 }
 
 export default Body

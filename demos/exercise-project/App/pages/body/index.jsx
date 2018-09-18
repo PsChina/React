@@ -16,6 +16,7 @@ const Body = props => (
         <StaffTable
             titles={props.titles} 
             staffList={props.staffList} 
+            originList={props.originList}
             updata={props.updata}
             toggleDetail={props.toggleDetail}
             updataCurrentStaff={props.updataCurrentStaff}
@@ -30,6 +31,7 @@ function noop (){
 Body.defaultProps = {
     titles: [],
     staffList: [],
+    originList:[],
     placeholder: 'Search...',
     searchVal: '',
     currentType: '全部',

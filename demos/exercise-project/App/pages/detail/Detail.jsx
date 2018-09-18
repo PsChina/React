@@ -14,7 +14,7 @@ class Detail extends React.Component {
         })
     }
     changeItem(event,attr){
-        const {item} = this.state
+        const item = Object.assign({},this.state.item) 
         item[attr] = event.target.value
         this.setState({
             item

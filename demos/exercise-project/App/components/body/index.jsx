@@ -3,7 +3,7 @@ import './index.scss'
 import Search from './Search/Search.jsx'
 import StaffTable from './StaffTable/StaffTable.jsx'
 
-const Body = props=>(
+const Body = props => (
     <div className="app-body">
         <Search />
         <StaffTable 
@@ -15,6 +15,7 @@ const Body = props=>(
         />
     </div>
 )
+
 function noop (){
     return false
 }

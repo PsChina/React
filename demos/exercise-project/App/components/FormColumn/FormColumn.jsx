@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import './FormColumn.scss'
 const FormColumn = props => (
     <div className={props.className}>
-       <label htmlFor={props.label}><span className={props.lableClass}>{props.label}</span> { React.Children.map(props.children,item=>item) } </label> 
+       <label htmlFor={props.label}><span className={props.labelClass}>{props.label}</span> { React.Children.map(props.children,item=>item) } </label> 
     </div>
 )
 
 FormColumn.defaultProps = {
     className: '',
-    labeClass: '',
+    labelClass: '',
 }
 
 FormColumn.propTypes = {

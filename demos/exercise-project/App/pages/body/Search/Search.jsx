@@ -1,6 +1,6 @@
 import React from 'react'
 import './Search.scss'
-import Select from './Select/Select.jsx'
+import Select from '../../../components/Select/Select.jsx'
 
 class Search extends React.Component{
     constructor(){

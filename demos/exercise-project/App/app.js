@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Header from './components/header/index.jsx'
-import Body from './components/body/index.jsx'
-import Footer from './components/footer/index.jsx'
-import Detail from './components/detail/Detail.jsx'
+import Header from './pages/header/index.jsx'
+import Body from './pages/body/index.jsx'
+import Footer from './pages/footer/index.jsx'
+import Detail from './pages/detail/Detail.jsx'
 import './app.scss'
 
 class App extends React.Component{
@@ -122,9 +122,11 @@ class App extends React.Component{
         })
     }
     save(_item,name){
-        const newStaffList = this.state.staffList.map(item=>item.name===name?_item:item)
+        const staffList = this.state.staffList.map(item=>item.name===name?_item:item)
+        const originList = this.state.originList.map(item=>item.name===name?_item:item)
         this.setState({
-            staffList:newStaffList
+            staffList,
+            originList,
         })
     }
     changeSortType(event){

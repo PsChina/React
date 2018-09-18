@@ -3,8 +3,8 @@ const StaffList = (fatherProps)=>{
     const {originList,staffList} = fatherProps
     const Staff = (props)=>{
         function deleteStaff(_item){
-            const newOriginList = originList.filter(item=>item.name!==_item.name)
-            const newStaffList = staffList.filter(item=>item.name!==_item.name)
+            const newOriginList = originList.filter(item=>JSON.stringify(item)!==JSON.stringify(_item))
+            const newStaffList = staffList.filter(item=>JSON.stringify(item)!==JSON.stringify(_item))
             fatherProps.updata({originList:newOriginList,staffList:newStaffList})
         }
         function openDetail(_item){

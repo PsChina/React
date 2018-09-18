@@ -1,14 +1,15 @@
 import React from 'react'
-const StaffList = (staffListProps)=>{
-    const {originList} = staffListProps
+const StaffList = (fatherProps)=>{
+    const {originList,staffList} = fatherProps
     const Staff = (props)=>{
         function deleteStaff(_item){
             const newOriginList = originList.filter(item=>item!==_item)
-            staffListProps.updata({originList:newOriginList})
+            const newStaffList = staffList.filter(item=>item!==_item)
+            fatherProps.updata({originList:newOriginList,staffList:newStaffList})
         }
         function openDetail(_item){
-            staffListProps.updataCurrentStaff(_item)
-            staffListProps.toggleDetail()
+            fatherProps.updataCurrentStaff(_item)
+            fatherProps.toggleDetail()
         }
         return (
             <tr>
@@ -25,7 +26,7 @@ const StaffList = (staffListProps)=>{
     }
     return (
         <tbody>
-            { staffListProps.staffList.map(item=><Staff key={item.name} item={item}/>) }
+            { staffList.map(item=><Staff key={item.name} item={item}/>) }
         </tbody>
     )
 }

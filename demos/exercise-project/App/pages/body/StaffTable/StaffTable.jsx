@@ -7,6 +7,7 @@ const StaffTable = props=>(
         <StaffTableHeader titles={props.titles}/>
         <StaffList 
             staffList={props.staffList}
+            originList={props.originList}
             updata={props.updata}
             toggleDetail={props.toggleDetail}
             updataCurrentStaff={props.updataCurrentStaff}
@@ -20,6 +21,7 @@ function noop (){
 
 StaffTable.defaultProps = {
     titles:[],
+    originList:[],
     staffList:[],
     updata: noop,
     toggleDetail: noop,

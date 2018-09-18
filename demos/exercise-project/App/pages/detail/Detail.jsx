@@ -1,11 +1,80 @@
 import React from 'react'
 import './Detail.scss'
+import Select from '../../components/Select/Select.jsx'
+import ForFormCloums from '../../components/ForFormColums/ForFormColums.jsx'
 
 class Detail extends React.Component {
     constructor(){
         super()
         this.state={
-            item:{}
+            item:{},
+            sexs:[
+                '男',
+                '女'
+            ],
+            staffTypes:[
+                '主任',
+                '老师',
+                '学生',
+                '实习',
+            ],
+            data: [
+                {
+                    label : '姓名',
+                    className: 'form-column',
+                    render:()=>{
+                        return (
+                            <input type="text" value={this.state.item.name||''} onChange={ event=>this.changeItem(event,'name')}/>
+                        )
+                    }
+                },
+                {
+                    label : '年龄',
+                    className: 'form-column',
+                    render:()=>{
+                        return (
+                            <input type="text" value={this.state.item.age||''} onChange={ event=>this.changeItem(event,'age')}/>
+                        )
+                    } 
+                },
+                {
+                    label : '性别',
+                    className: 'form-column',
+                    render:()=>{
+                        return (
+                            <Select 
+                                id="性别"
+                                value={this.state.item.sex}
+                                options={this.state.sexs}
+                                onChange={event=>this.changeItem(event,'sex')} 
+                            />
+                        )
+                    } 
+                },
+                {
+                    label : '身份',
+                    className: 'form-column',
+                    render:()=>{
+                        return (
+                            <Select 
+                                id="身份"
+                                value={this.state.item.id}
+                                options={this.state.staffTypes}
+                                onChange={event=>this.changeItem(event,'id')} 
+                            />
+                        )
+                    } 
+                },
+                {
+                    label : '个人描述',
+                    className: 'form-column',
+                    render:()=>{
+                        return (
+                            <input type="text" value={this.state.item.descrip||''} onChange={ event=>this.changeItem(event,'descrip')}/>
+                        )
+                    } 
+                }
+            ]
         }
     }
     componentWillReceiveProps(nextProps){
@@ -31,28 +100,13 @@ class Detail extends React.Component {
         return(
             <div className="detail" style={{display:this.props.show?'flex':'none'}}>
                 <h3>点击'完成'保存修改,点击'关闭'放弃未保存修改并退出.</h3>
-                <div>姓名 <input type="text" value={this.state.item.name||''} onChange={event=>this.changeItem(event,'name')}/></div>
-                <div>年龄 <input type="text" value={this.state.item.age||''} onChange={event=>this.changeItem(event,'age')}/></div>
-                <div>性别 <select value={this.state.item.sex} onChange={event=>this.changeItem(event,'sex')}>
-                            <option value="男">男</option>
-                            <option value="女">女</option>
-                          </select>
-                </div>
-                <div>身份 <select value={this.state.item.id} onChange={event=>this.changeItem(event,'id')}>
-                            <option value="主任">主任</option>
-                            <option value="实习">实习</option>
-                            <option value="老师">老师</option>
-                            <option value="学生">学生</option>
-                            <option>无</option>
-                          </select>
-                </div>
-                <div>个人描述 <input type="text" value={this.state.item.descrip||''} onChange={event=>this.changeItem(event,'descrip')}/></div>
+                <ForFormCloums data={this.state.data}/>
                 <div className="detail-footer">
                     <div className="footer-item" onClick={this.save.bind(this)}>完成</div>
                     <div className="footer-item" onClick={this.cancel.bind(this)}>关闭</div>
                 </div>
             </div>
-        )        
+        )
     }
 }
 function noop(){

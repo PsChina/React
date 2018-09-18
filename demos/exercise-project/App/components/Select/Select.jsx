@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Select = props => (
-    <select name="" id={props.id} value={props.value} onChange={props.onChange}>
+    <select name={props.name} id={props.id} value={props.value} onChange={props.onChange}>
         { props.options.map(item=><option value={item} key={item}>{item}</option>) }
     </select>
 )
@@ -14,6 +14,7 @@ function noop(){
 Select.defaultProps = {
     options: [],
     value: '',
+    name: '',
     onChange: noop
 }
 

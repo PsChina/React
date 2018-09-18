@@ -1,10 +1,10 @@
 import React from 'react'
 const StaffList = (staffListProps)=>{
-    const {staffList} = staffListProps
+    const {originList} = staffListProps
     const Staff = (props)=>{
         function deleteStaff(_item){
-            const newStaffList = staffList.filter(item=>item!==_item)
-            staffListProps.updata(newStaffList)
+            const newOriginList = originList.filter(item=>item!==_item)
+            staffListProps.updata({originList:newOriginList})
         }
         function openDetail(_item){
             staffListProps.updataCurrentStaff(_item)
@@ -34,6 +34,7 @@ function noop (){
 }
 StaffList.defaultProps={
     staffList:[],
+    originList:[],
     updata: noop,
     toggleDetail: noop,
     updataCurrentStaff: noop

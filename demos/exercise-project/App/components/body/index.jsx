@@ -5,7 +5,7 @@ import StaffTable from './StaffTable/StaffTable.jsx'
 
 const Body = props => (
     <div className="app-body">
-        <Search 
+        <Search
             searchVal={props.searchVal}
             currentType={props.currentType}
             currentSortWay={props.currentSortWay}
@@ -13,7 +13,7 @@ const Body = props => (
             changeSortWay={props.changeSortWay}
             onSearch={props.onSearch}
         />
-        <StaffTable 
+        <StaffTable
             titles={props.titles} 
             staffList={props.staffList} 
             updata={props.updata}

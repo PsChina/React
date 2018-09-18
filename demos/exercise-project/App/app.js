@@ -143,11 +143,11 @@ class App extends React.Component{
         const {length} = newArr
         let temp
         for(let i = 0; i<length-1; i++) { 
-            for(let j = 0; j<length-1; j++){
+            for(let j = i; j<length-1; j++){
                 if(newArr[j][attr]>newArr[j+1][attr]){
-                    temp = newArr[j]
-                    newArr[j] = newArr[j+1]
-                    newArr[j+1] = temp
+                    temp = newArr[j+1]
+                    newArr[j+1] = newArr[j]
+                    newArr[j] = temp
                 }
             }
         }

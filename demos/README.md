@@ -14,6 +14,7 @@
 1. [组件生命周期](#demo10-组件生命周期)
 1. [Ajax](#demo11-ajax)
 1. [组件间通讯之状态提升](#demo12-状态提升)
+1. [入门技能检验项目](#project)
 
 ## demo01: Hello World
 
@@ -961,3 +962,15 @@ var newPlayer = Object.assign({}, player, {score: 2});
 在 React 当中判定何时重新渲染
 运用不可变性原则给 React 带来最大的好处是，既然我们现在可以很方便地判断对象数据是否发生改变了，那么也就很好决定何时根据数据的改变重新渲染组件。尤其是当我们编写的都属于 纯组件 pure components 的时候，这种好处的效果更为明显。
 
+## project
+
+`增` `删` `改` `查` 是我们常见的需求。
+
+现在我们用学到的 react 知识实现一个增删改查的功能。
+
+[在线浏览项目效果](https://pschina.github.io/#/react/homework)
+
+[项目源码](https://github.com/PsChina/React/tree/master/demos/exercise-project/App)
+
+
+尚未完成表单验证以及css样式所以有一些不足请谅解。

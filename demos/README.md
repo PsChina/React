@@ -974,6 +974,7 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 
 尚未完成表单验证以及css样式所以有一些不足请谅解。
+```js
 
 
 
@@ -1001,6 +1002,5 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 
 
-
-
+```
 end

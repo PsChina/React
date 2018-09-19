@@ -157,7 +157,7 @@ __下载 webpack :__
 npm i webpack -D
 ```
 
-#### 如果电脑内已经全局和本地安装了 webpack-cli 那么不必运行以下两行。
+如果电脑内已经全局和本地安装了 webpack-cli 那么不必运行以下两行。
 
 ```bash
 npm i webpack-cli -g

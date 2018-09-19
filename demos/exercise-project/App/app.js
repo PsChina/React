@@ -144,7 +144,7 @@ class App extends React.Component{
         let newArr = JSON.parse(JSON.stringify(objArr))
         const {length} = newArr
         let temp
-        for(let i = 0; i<length-1; i++) { 
+        for(let i = 0; i<length; i++) { 
             for(let j = i; j<length-1; j++){
                 if(newArr[j][attr]>newArr[j+1][attr]){
                     temp = newArr[j+1]

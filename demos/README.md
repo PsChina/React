@@ -967,7 +967,7 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 React 的核心思想 - View 是 state 的输出。
 ```js
-view = f(state)
+View = f(state)
 ```
 上式中，`f`表示函数关系。只要 State 发生变化， View 也会随之变化。
 
@@ -975,13 +975,13 @@ view = f(state)
 
 x 是输入 y 是输出
 
-而 React 组件就是状态机，更具不同的 state 组件所展示的状态也不一样。
+而 React 根据不同的 state 组件所展示的状态也不一样。
 
 __React 的本质是将图形界面（GUI）函数化。__
 
-这就需要用到纯函数组件
+这就需要用到纯函数组件。
 
-有个很好用的工具箭头函数能够简介的表达
+有个很好用的工具箭头函数能够简洁的表达：
 
 ```js
 const double = input => input*2
@@ -1000,7 +1000,7 @@ const Title = props => <h1>{props.text}</h1>
 
 我忍不住说一下
 
-`=>` 这个符号在证明题里用的最多了推导过程必用，箭头函数用起来的感觉就是 x 经过函数 f 的处理推导出了 y 。 
+`=>` 这个符号在证明题里用的最多了，推导过程必用，箭头函数用起来的感觉就是 x 经过函数 f 的处理推导出了 y 。 
 ```js
 const f = x=>y
 ```
@@ -1009,7 +1009,7 @@ const f = x=>y
 
 ```js
 const Component = props => {
-    // Do somthing.
+    // Do something.
     return (
         // Some jsx.
     )

@@ -39,7 +39,6 @@ class Search extends React.Component{
                 <input type="text" value={this.state.searchVal} placeholder={this.state.placeholder} onChange={this.props.onSearch}/>
                 <FormCloemn label="人员筛选：">
                     <Select 
-                        id="人员筛选：" 
                         options={this.state.staffTypes} 
                         value={this.state.currentType} 
                         onChange={this.props.changeSortType}
@@ -47,7 +46,6 @@ class Search extends React.Component{
                 </FormCloemn>
                 <FormCloemn label="排列方式：">
                     <Select 
-                        id="排列方式：" 
                         options={this.state.sortsOrders} 
                         value={this.state.currentSortWay} 
                         onChange={this.props.changeSortWay}

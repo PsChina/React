@@ -990,12 +990,22 @@ double(2)
 // 结果是 4
 ```
 
-而 react 的纯函数组件就是这样的
+而 react 的纯函数组件就是这样的：
 
 把 `state` 转换成 `UI`
 
 ```js
 const Title = props => <h1>{props.text}</h1>
+```
+
+它的更加常见的形式是：
+
+```js
+const Component = props => {
+    return (
+        // some jsx.
+    )
+}
 ```
 
 ` Redux 要求 UI 的渲染组件都是纯组件，即不包含任何状态（this.state）的组件。`

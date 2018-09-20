@@ -1002,8 +1002,9 @@ const Title = props => <h1>{props.text}</h1>
 
 ```js
 const Component = props => {
+    // Do somthing.
     return (
-        // some jsx.
+        // Some jsx.
     )
 }
 ```

@@ -14,6 +14,7 @@
 1. [组件生命周期](#demo10-组件生命周期)
 1. [Ajax](#demo11-ajax)
 1. [组件间通讯之状态提升](#demo12-状态提升)
+1. [纯函数组件与函数式编程](#纯函数组件与函数式编程)
 1. [入门技能检验项目](#project)
 
 ## demo01: Hello World
@@ -961,6 +962,82 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 在 React 当中判定何时重新渲染
 运用不可变性原则给 React 带来最大的好处是，既然我们现在可以很方便地判断对象数据是否发生改变了，那么也就很好决定何时根据数据的改变重新渲染组件。尤其是当我们编写的都属于 纯组件 pure components 的时候，这种好处的效果更为明显。
+
+## 纯函数组件与函数式编程
+
+React 的核心思想 - View 是 state 的输出。
+```js
+view = f(state)
+```
+上式中，`f`表示函数关系。只要 State 发生变化， View 也会随之变化。
+
+类似 y = f(x)
+
+x 是输入 y 是输出
+
+而 React 组件就是状态机，更具不同的 state 组件所展示的状态也不一样。
+
+__React 的本质是将图形界面（GUI）函数化。__
+
+这就需要用到纯函数组件
+
+有个很好用的工具箭头函数能够简介的表达
+
+```js
+const double = input => input*2
+
+double(2)
+// 结果是 4
+```
+
+而 react 的纯函数组件就是这样的
+
+把 `state` 转换成 `UI`
+
+```js
+const Title = props => <h1>{props.text}</h1>
+```
+
+` Redux 要求 UI 的渲染组件都是纯组件，即不包含任何状态（this.state）的组件。`
+
+所以学会它能帮我们更好的使用 react 。
+
+用起来的效果是这样的
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+
+const Title = props => <h1>{props.text}</h1>
+
+const Body = props => <div>{ React.Children.map(props.children,item=>item)}</div>
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            title:"纯函数组件",
+            defaultText:'随便写点什么吧'
+        }
+    }
+    render(){
+        return (
+            <div>
+                <Title text={this.state.title}/>
+                <Body>
+                    <div>{this.state.defaultText}</div>
+                </Body>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App/>,document.getElementById('root'))
+```
+
+效果:
+
+![purefunctioncomponent](https://github.com/PsChina/React/blob/master/images/purefunctioncomponent.png)
 
 ## project
 

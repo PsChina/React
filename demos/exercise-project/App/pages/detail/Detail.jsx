@@ -43,7 +43,6 @@ class Detail extends React.Component {
                     render:()=>{
                         return (
                             <Select 
-                                id="性别"
                                 value={this.state.item.sex}
                                 options={this.state.sexs}
                                 onChange={event=>this.changeItem(event,'sex')} 
@@ -57,7 +56,6 @@ class Detail extends React.Component {
                     render:()=>{
                         return (
                             <Select 
-                                id="身份"
                                 value={this.state.item.id}
                                 options={this.state.staffTypes}
                                 onChange={event=>this.changeItem(event,'id')} 

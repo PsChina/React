@@ -1057,6 +1057,8 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 ![purefunctioncomponent](https://github.com/PsChina/React/blob/master/images/purefunctioncomponent.png)
 
+[函数式编程-百度百科](https://baike.baidu.com/item/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/4035031?fr=aladdin)
+
 ## project
 
 `增` `删` `改` `查` 是我们常见的需求。

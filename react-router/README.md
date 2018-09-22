@@ -9,6 +9,10 @@ npm i react-router-dom -S
 ```
 
 1. [一级路由](#demo01-非嵌套路由)
+1. [HashRouter](#hashrouter)
+1. [Route](#route)
+1. [Switch](#switch)
+1. [Link](#link)
 
 ## demo01 非嵌套路由:
 ```jsx

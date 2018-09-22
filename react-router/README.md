@@ -126,7 +126,7 @@ Route 是路由的一个原材料，它是控制路径对应显示的组件。�
 </Link>
 ```
 
-经过Link组件的处理后：
+经过 Link 组件的处理后：
 
 ```html
 <a href="#/user">
@@ -269,5 +269,11 @@ const Page2 = props=>
     </Switch>
 </div>
 ```
+
+### props.match.url
+
+我们可以通过 `props.match.url` 获取对于当前子路由的相对路径，以便编写动态路由。
+
+如果没有编写动态路由的需求可以用固定的常量来代替。
 
 ![效果](https://github.com/PsChina/React/blob/master/images/router02.gif)

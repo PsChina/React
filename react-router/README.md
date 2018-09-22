@@ -13,6 +13,7 @@ npm i react-router-dom -S
 1. [Route](#route)
 1. [Switch](#switch)
 1. [Link](#link)
+1. [多级嵌套](#demo02-嵌套路由)
 
 ## demo01 非嵌套路由:
 ```jsx
@@ -170,3 +171,102 @@ HashRouter 和 BrowserRouter 是对 Router 的封装，传入 Router 的 history
 使用 hashHistory 时，因为有 # 的存在，浏览器不会发送 request， react-router 自己根据 url 去 render 相应的模块。
 
 使用 browserHistory 时，从 / 到 /user/liuna， 浏览器会向 server 发送 request，所以 server 要做特殊请求，比如用的 express 的话，你需要 handle 所有的路由 app.get('*', (req, res) => { ... })，使用了 nginx 的话，nginx 也要做相应的配置。
+
+## demo02 嵌套路由
+
+这个 demo 演示的是二级路由，掌握了它，就能实现任意级的路由嵌套。
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { HashRouter, Route, Switch, Link } from 'react-router-dom'
+
+const MainPage = ()=><div>主页</div>
+
+const Page1 = ()=><div>页面一</div>
+
+const Page2A = ()=><div>AAAA</div>
+
+const Page2B = ()=><div>BBBB</div>
+
+const Page2 = props=>
+<div>
+    页面二
+    <ul>
+        <li><Link to={`${props.match.url}/a`}>a</Link></li>
+        <li><Link to={`${props.match.url}/b`}>b</Link></li>
+    </ul>    
+    <Switch>
+        <Route exact path={`${props.match.url}/a`} component={Page2A}/>
+        <Route exact path={`${props.match.url}/b`} component={Page2B}/>
+    </Switch>
+</div>
+
+const Page = props=><div>{props.content}</div>
+
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <HashRouter>
+                <div>
+                    <div>
+                        <ul>
+                            <li><Link to="/page1">page1</Link></li>
+                            <li><Link to="/page2">page2</Link></li>
+                            <li><Link to="/other">other</Link></li>
+                        </ul>  
+                    </div>
+                    <Switch>
+                        <Route exact path="/" component={MainPage}></Route>
+                        <Route path="/page1" component={Page1}></Route>
+                        <Route path="/page2" component={Page2}></Route>
+                        <Route render={ ()=><Page content='Not Found.'/> }></Route>
+                    </Switch>                    
+                </div>
+            </HashRouter>       
+        )
+    }
+}
+
+ReactDOM.render(<App/>,document.getElementById('root'))
+```
+
+分解一下
+
+一级路由部分
+```jsx
+<Switch>
+    <Route exact path="/" component={MainPage}></Route>
+    <Route path="/page1" component={Page1}></Route>
+    <Route path="/page2" component={Page2}></Route> // 这个 Page2 内含有二级页面
+    <Route render={ ()=><Page content='Not Found.'/> }></Route>
+</Switch>   
+```
+
+二级路由部分
+
+```jsx
+// 定义第一个二级子页面
+const Page2A = ()=><div>AAAA</div>
+// 定义第二个二级子页面
+const Page2B = ()=><div>BBBB</div>
+
+// 定义 Page2
+const Page2 = props=>
+<div>
+    页面二
+    <ul>
+        <li><Link to={`${props.match.url}/a`}>a</Link></li> // 定义按钮
+        <li><Link to={`${props.match.url}/b`}>b</Link></li> // 定义按钮
+    </ul>    
+    <Switch> // 通过类似以及路由的形式 Switch 包裹多个二级页面
+        <Route exact path={`${props.match.url}/a`} component={Page2A}/>
+        <Route exact path={`${props.match.url}/b`} component={Page2B}/>
+    </Switch>
+</div>
+```
+
+![效果](https://github.com/PsChina/React/blob/master/images/router02.gif)

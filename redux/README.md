@@ -4,19 +4,21 @@
 1. [flux 思想是如何解决问题的](#flux-思想是如何解决问题的)
 1. [redux](#redux)
 1. [store](#store)
-1. [dispatch](#dispatch-（派发事件函数）)
+1. [dispatch](#dispatch)
 1. [action](#action)
-1. [reduce](#reduce-（修改并更新store的函数）)
+1. [reduce](#reduce)
 1. [react-redux](#react-redux)
 1. [connect](#connect)
 1. [mapStateToProps](#mapstatetoprops)
 1. [mapDispatchToProps](#mapdispatchtoprops)
 1. [Provider](#provider)
+
 ## 为什么要使用 Redux
 
 React 没有解决的问题:
 
 1.-架构：大型应用程序应该如何组织代码？
+
 2.-通信：组件之间如何通信？
 
 
@@ -76,7 +78,9 @@ import { createStore } from 'redux'
 const store = createStore(reducer)
 ```
 
-### dispatch （派发事件函数）
+### dispatch
+
+（派发事件函数）
 
 组件如果要修改数据可以通过派发事件的方式来做到，这就避免了数据被随意修改的风险。
 
@@ -93,9 +97,14 @@ action含有 事件类型- `type` 以及要修改的数据- `payload` （ type�
 }
 ```
 
-### reduce （修改并更新store的函数）
+### reduce
+
+ （修改并更新store的函数）
+
 reduce 函数接收两个参数：
+
 第一个参数是旧的 state
+
 第二个参数是被派发的事件 action
 
 reducers 会根据不同的事件类型调用不同的 reduce 。
@@ -253,8 +262,11 @@ ReactDOM.render(
 demo01 演示的效果是共用了同一个 number 数据的两个组件，同时能够更改这个 number 。
 
 组件 A 显示的是1倍的 number
+
 组件 B 显示的是2倍的 number
+
 组件 A 的按钮点击一下 number 加一。
+
 组件 B 的按钮点击一下 number 减一。
 
 ![demo01](https://github.com/PsChina/React/blob/master/images/redux.gif)

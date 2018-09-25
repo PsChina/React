@@ -9,8 +9,8 @@
 1. [reduce](#reduce)
 1. [react-redux](#react-redux)
 1. [connect](#connect)
-1. [mapStateToProps](#mapStatetoprops)
-1. [mapDispatchToProps](#mapdispatchtoProps)
+1. [mapStateToProps](#mapstatetoprops)
+1. [mapDispatchToProps](#mapdispatchtoprops)
 1. [Provider](#provider)
 ## 为什么要使用 Redux
 

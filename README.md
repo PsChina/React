@@ -3,6 +3,7 @@
 
 1. [react 语法](https://github.com/PsChina/React/tree/master/demos#目录)
 1. [react 路由](https://github.com/PsChina/React/tree/master/react-router#目录)
+1. [redux](https://github.com/PsChina/React/tree/master/redux#目录)
 1. [react 环境搭建](#react环境搭建)
 
 ## react环境搭建

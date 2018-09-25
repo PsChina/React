@@ -65,7 +65,7 @@ store 的改变会被刷新到引用它的各个视图。
 
 反之亦然。
 
-flux flow:
+__flux 数据流__ :
 
 ![flux](https://github.com/PsChina/React/blob/master/images/flux.png)
 

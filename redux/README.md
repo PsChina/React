@@ -6,7 +6,7 @@
 1. [store](#store)
 1. [dispatch](#dispatch-（派发事件函数）)
 1. [action](#action)
-1. [reduce](#reduce)
+1. [reduce](#reduce-（修改并更新store的函数）)
 1. [react-redux](#react-redux)
 1. [connect](#connect)
 1. [mapStateToProps](#mapstatetoprops)

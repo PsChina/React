@@ -45,7 +45,7 @@ View要从多个来源获取数据
 
 flux: __单向数据流__
 
-![flux](https://github.com/PsChina/React/blob/master/images/redux.png)
+![flux](https://github.com/PsChina/React/blob/master/images/flux.png)
 
 flux 思想解决的问题是当多个组件共享同一个数据并且对同一个数据进行修改的时候，容易出现数据难以同步的情况。
 

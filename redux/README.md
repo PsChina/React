@@ -47,13 +47,26 @@ View要从多个来源获取数据
 
 flux: __单向数据流__
 
-![flux](https://github.com/PsChina/React/blob/master/images/flux.png)
-
 flux 思想解决的问题是当多个组件共享同一个数据并且对同一个数据进行修改的时候，容易出现数据难以同步的情况。
 
 问题如图:
 
 ![without flux](https://github.com/PsChina/React/blob/master/images/whitout-flux.png)
+
+fulx 解决问题的思路是组件可以有修改数据的权限，但是不能随意修改必须用过唯一的方法 `dispatch` 修改，
+
+用户的操作 `action` 在触发 dispatch 以后 dispatch 会修改数据源 store 。
+
+store 的改变会被刷新到引用它的各个视图。
+
+这种单向的数据流动保证的数据的同步，也就是所谓的可预测。 这个 react 采用的的函数式编程思想不谋而合
+
+因为对于同一个 state 纯组件渲染之后得到的一定相同的结果，意思是说你知道了 state 你就能预测出 view ，
+
+反之亦然。
+
+![flux](https://github.com/PsChina/React/blob/master/images/flux.png)
+
 
 ## redux
 

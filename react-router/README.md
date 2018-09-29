@@ -289,25 +289,28 @@ const Page2 = props=>
 
 不再 import `Link` ， 替换为 `NavLink` ， 如果不习惯可以用过 `as` 改名: `NavLink as Link` 。
 
+
+添加一个选中后文字为绿色的 a 链接的代码：
 ```css
 .active{
     color: green;
 }
 ```
 
-使用样例:
 ```jsx
 import { NavLink as Link } from 'react-router-dom'
 
 <Link activeClassName="active" to="/page1">page1</Link>
 ```
 
+效果如图:
+
+![效果](https://github.com/PsChina/React/blob/master/images/active.gif)
+
 ### activeStyle
 
 如果不想写类名想用行内样式代替可以使用 `activeStyle`
 
-
-![效果](https://github.com/PsChina/React/blob/master/images/active.gif)
 
 ## demo04 路由传参
 

@@ -281,6 +281,8 @@ const Page2 = props=>
 
 ## demo03 选中状态
 
+### activeClassName
+
 可以通过 `<NavLink/>` 的 `activeClassName` 属性给 link 标签添加选中样式。
 
 不再 import `Link` ， 替换为 `NavLink` ， 如果不习惯可以用过 `as` 改名: `NavLink as Link` 。
@@ -295,3 +297,7 @@ import { NavLink as Link } from 'react-router-dom'
 
 <Link activeClassName="active" to="/page1">page1</Link>
 ```
+
+### activeStyle
+
+如果不想写类名想用行内样式代替可以使用 `activeStyle`

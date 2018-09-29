@@ -17,6 +17,7 @@ npm i react-router-dom -S
 1. [多级嵌套](#demo02-嵌套路由)
 1. [Link 标签选中状态](#demo03-选中状态)
 1. [路由传参](#demo04-路由传参)
+1. [编程式导航](#demo05-编程式导航)
 
 ## demo01 非嵌套路由:
 ```jsx
@@ -341,3 +342,72 @@ const Page2 = ()=><div>页面二</div>
 获取参数: 通过 `componentWillMount` 中的 `this.props.location` 。
 
 react-router4.0 以后就去掉了 onEnter 和 onLeave 这样的路由钩子，可以用 `componentWillMount` 和 `componentWillUnmount` 来代替。
+
+## demo05 编程式导航
+
+如何通过一个回调函数来触发导航呢？ 
+
+答案是使用 `history.push(pathName,state)`
+
+__第一个参数是路由的 pathname__
+
+__第二个参数是路由的 state 可当做路由传参的接口__
+
+如果使用的是 HashRouter 那么需要 
+```js
+import createHashHistory from 'history/createHashHistory'
+```
+BrowserRouter 对应  `history/createBrowserHistory`
+
+MemoryRouter 对应 `history/createMemoryHistory`
+
+```jsx
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { Router as HashRouter, Route, Switch } from 'react-router-dom'
+import createHashHistory from 'history/createMemoryHistory'
+const history = createHashHistory()
+
+class Page1 extends Component{
+    constructor(){
+        super()
+    }
+    componentWillMount(){
+        console.log('路由将要挂载参数是:',this.props.location.state)
+    }
+    render(){
+        return <div>页面一</div>
+    }
+}
+
+const Page2 = ()=><div>页面二</div>
+
+
+class App extends Component{
+    constructor(){
+        super()
+        this.go = this.go.bind(this)
+    }
+    go(path){
+        const state = {param1:'参数1'}
+        this.props.history.push(path, state)
+    }
+    render(){
+        return (
+            <HashRouter history={history}>
+                <div>
+                    <div>
+                        <input type="button" onClick={()=>this.go('/page1')} value="go Page1"/>
+                        <input type="button" onClick={()=>this.go('/page2')} value="go Page2"/>
+                    </div>
+                    <Switch>
+                        <Route path="/page1" component={Page1}></Route>
+                        <Route path="/page2" component={Page2}></Route>
+                    </Switch>                    
+                </div>
+            </HashRouter>       
+        )
+    }
+}
+ReactDOM.render(<App history={history}/>,document.getElementById('root'))
+```

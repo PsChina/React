@@ -16,6 +16,7 @@ npm i react-router-dom -S
 1. [Link](#link)
 1. [多级嵌套](#demo02-嵌套路由)
 1. [Link 标签选中状态](#demo03-选中状态)
+1. [路由传参](#demo04-路由传参)
 
 ## demo01 非嵌套路由:
 ```jsx
@@ -292,6 +293,8 @@ const Page2 = props=>
     color: green;
 }
 ```
+
+使用样例:
 ```jsx
 import { NavLink as Link } from 'react-router-dom'
 
@@ -301,3 +304,40 @@ import { NavLink as Link } from 'react-router-dom'
 ### activeStyle
 
 如果不想写类名想用行内样式代替可以使用 `activeStyle`
+
+
+## demo04 路由传参
+
+Link 标签的 `to` 属性不仅仅可以是一个字符串，它还可以是一个对象，可以很方便的传递参数：
+
+```jsx
+import React, { Component } from 'react'
+
+import { NavLink as Link } from 'react-router-dom'
+
+class Page1 extends Component{
+    constructor(){
+        super()
+    }
+    componentWillMount(){ //要使用生命周期函数的话就不能定义纯函数组件。
+        console.log('路由将要挂载参数是:',this.props.location)
+    }
+    render(){
+        return <div>页面一</div>
+    }
+}
+
+const Page2 = ()=><div>页面二</div>
+
+// render 函数返回值(部分)
+<ul>
+    <li><Link activeClassName="active" to={{pathname:'/page1',search:'?keyword=name',hash:'#react-lesson',state:{like:true}}}>page1</Link></li>
+    <li><Link activeClassName="active" to="/page2">page2</Link></li>
+</ul>  
+```
+
+传递参数: 通过 `Link` 标签中中的 `to={{pathname:'/page1',search:'?keyword=name',hash:'#react-lesson',state:{like:true}}}` 传递参数。
+
+获取参数: 通过 `componentWillMount` 中的 `this.props.location` 。
+
+react-router4.0 以后就去掉了 onEnter 和 onLeave 这样的路由钩子，可以用 `componentWillMount` 和 `componentWillUnmount` 来代替。

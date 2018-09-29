@@ -307,6 +307,8 @@ import { NavLink as Link } from 'react-router-dom'
 如果不想写类名想用行内样式代替可以使用 `activeStyle`
 
 
+![效果](https://github.com/PsChina/React/blob/master/images/active.gif)
+
 ## demo04 路由传参
 
 Link 标签的 `to` 属性不仅仅可以是一个字符串，它还可以是一个对象，可以很方便的传递参数：

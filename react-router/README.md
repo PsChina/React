@@ -15,6 +15,7 @@ npm i react-router-dom -S
 1. [Switch](#switch)
 1. [Link](#link)
 1. [多级嵌套](#demo02-嵌套路由)
+1. [activeClassName](#demo03-选中状态)
 
 ## demo01 非嵌套路由:
 ```jsx
@@ -277,3 +278,20 @@ const Page2 = props=>
 如果没有编写动态路由的需求可以用固定的常量来代替。
 
 ![效果](https://github.com/PsChina/React/blob/master/images/router02.gif)
+
+## demo03 选中状态
+
+可以通过 `<NavLink/>` 的 `activeClassName` 属性给 link 标签添加选中样式。
+
+不再 import `Link` ， 替换为 `NavLink` ， 如果不习惯可以用过 `as` 改名: `NavLink as Link` 。
+
+```css
+.active{
+    color: green;
+}
+```
+```jsx
+import { NavLink as Link } from 'react-router-dom'
+
+<Link activeClassName="active" to="/page1">page1</Link>
+```

@@ -15,7 +15,7 @@ npm i react-router-dom -S
 1. [Switch](#switch)
 1. [Link](#link)
 1. [多级嵌套](#demo02-嵌套路由)
-1. [activeClassName](#demo03-选中状态)
+1. [Link标签选中状态](#demo03-选中状态)
 
 ## demo01 非嵌套路由:
 ```jsx

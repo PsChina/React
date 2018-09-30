@@ -18,6 +18,7 @@ npm i react-router-dom -S
 1. [Link 标签选中状态](#demo03-选中状态)
 1. [路由传参](#demo04-路由传参)
 1. [编程式导航](#demo05-编程式导航)
+1. [按需加载](#demo06-按需加载)
 
 ## demo01 非嵌套路由:
 ```jsx
@@ -416,4 +417,81 @@ class App extends Component{
     }
 }
 ReactDOM.render(<App history={history}/>,document.getElementById('root'))
+```
+
+## demo06 按需加载
+
+es6 的 import() 语法支持动态加载文件我们利用这一特新加上高阶组件来实现路由按需加载
+
+### 高阶组件：
+
+一个参数为组件返回值也是组件的函数
+
+             f(compoentA)
+compoentA ==================> componentB
+
+
+AsyncComponent.jsx
+```jsx
+import React, { Component } from 'react'
+
+export default importCompoent=>{ // 接收一个被 promise 包裹的组件 
+
+    class AsyncComponent extends Component{
+        constructor(){
+            super()
+            this.state = {
+                component: null
+            }
+        }
+        componentDidMount(){ // 当空壳组件加载完毕的时候开始从 promise 内获取异步组件并设置到 state 内。
+            importCompoent().then(({default:component})=>{
+                this.setState({
+                    component
+                })
+            })
+        }
+        render(){
+            const C = this.state.component // 将 state 内的组件取出，并取名为 C
+            return C ? <C {...this.props}/> : null // 如果 C 存在则渲染它，否则渲染 null 。
+        }
+    }
+
+    return AsyncComponent
+}
+```
+
+app.js
+```jsx
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { HashRouter, Route, Switch, NavLink as Link } from 'react-router-dom'
+
+import AsyncComponent from './AsymcComponent'
+
+const Page1 = AsyncComponent( ()=>import('./pages/Page1.jsx') ) // 按需加载第一个路由
+const Page2 = AsyncComponent( ()=>import('./pages/Page2.jsx') ) // 按需加载第二个路由
+
+class App extends Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+            <HashRouter>
+                <div>
+                    <ul>
+                        <li><Link activeClassName="active" to="/page1">page1</Link></li>
+                        <li><Link activeClassName="active" to="/page2">page2</Link></li>
+                    </ul>
+                    <Switch>
+                        <Route path="/page1" component={Page1}></Route>
+                        <Route path="/page2" component={Page2}></Route>
+                    </Switch>                    
+                </div>
+            </HashRouter>       
+        )
+    }
+}
+ReactDOM.render(<App/>,document.getElementById('root'))
 ```

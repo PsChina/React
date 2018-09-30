@@ -4,8 +4,11 @@ import { HashRouter, Route, Switch, NavLink as Link } from 'react-router-dom'
 
 import AsyncComponent from './AsymcComponent'
 
-const Page1 = AsyncComponent( ()=>import('./pages/Page1.jsx') )
-const Page2 = AsyncComponent( ()=>import('./pages/Page2.jsx') )
+const Page1 = AsyncComponent( ()=>import('./pages/Page1.jsx') ) // 按需加载 page1
+const Page2 = AsyncComponent( ()=>import('./pages/Page2.jsx') ) // 按需加载 page2
+
+// import Page1 from './pages/Page1.jsx' 不使用按需加载
+// import Page2 from './pages/Page2.jsx' 不使用按需加载
 
 class App extends Component{
     constructor(){

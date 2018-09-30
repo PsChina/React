@@ -522,3 +522,23 @@ class App extends Component{
 }
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
+
+效果:
+
+使用按需加载以前：
+
+![非按需加载效果](https://github.com/PsChina/React/blob/master/images/router06-1.gif)
+
+打包后的 js ：
+
+![打包后的资源](https://github.com/PsChina/React/blob/master/images/router06-2.png)
+
+
+使用按需加载以后:
+
+![按需加载的效果](https://github.com/PsChina/React/blob/master/images/router06-3.gif)
+
+打包后的 js ：
+
+![打包后的资源](https://github.com/PsChina/React/blob/master/images/router06-4.png)
+

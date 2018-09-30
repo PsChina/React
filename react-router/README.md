@@ -463,7 +463,7 @@ function HighOrderComponent(Cmponent){
         }
         // ... Other life cycle.
         render(){
-            return <Cmponent />
+            return <Cmponent {...this.props}/>
         }
     }
 

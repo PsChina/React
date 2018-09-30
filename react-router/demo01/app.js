@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter, Route, Switch, Link } from 'react-router-dom'
+import { HashRouter, Route, Switch, Link , Redirect} from 'react-router-dom'
 
 const MainPage = ()=><div>主页</div>
 
@@ -26,6 +26,7 @@ class App extends React.Component{
                         </ul>  
                     </div>
                     <Switch>
+                        {/* <Redirect exact from="/other" to="/"/> */}
                         <Route exact path="/" component={MainPage}></Route>
                         <Route path="/page1" component={Page1}></Route>
                         <Route path="/page2" component={Page2}></Route>

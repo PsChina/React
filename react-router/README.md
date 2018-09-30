@@ -14,6 +14,7 @@ npm i react-router-dom -S
 1. [Route](#route)
 1. [Switch](#switch)
 1. [Link](#link)
+1. [Redirect](#redirect)
 1. [多级嵌套](#demo02-嵌套路由)
 1. [Link 标签选中状态](#demo03-选中状态)
 1. [路由传参](#demo04-路由传参)
@@ -70,7 +71,9 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 对 Router 的一个封装
 
-用 #/home #/page 等形式来切换路由 与之对应的是 `BrowserRouter`
+用 #/home #/page 等形式来切换路由。
+
+`BrowserRouter` 则是以不带 `#` 号的方式切换， BrowserRouter 需要服务端支持，HashRouter 则不需要。
 
 
 ### Route
@@ -137,6 +140,20 @@ Route 是路由的一个原材料，它是控制路径对应显示的组件。�
 </a>
 ```
 它与 a 链接的区别是 React 的 Link 标签不会产生不必要的刷新。
+
+### Redirect
+
+<Redirect> 组件用于路由的跳转，即用户访问一个路由，会自动跳转到另一个路由。
+
+```jsx
+<Route path="inbox" component={Inbox}>
+  {/* 从 /inbox/messages/:id 跳转到 /messages/:id */}
+  <Redirect from="messages/:id" to="/messages/:id" />
+</Route>
+```
+现在访问/inbox/messages/5，会自动跳转到/messages/5。
+
+打开 demo01 中的注释再访问 `/other` 会跳转到 `/` 主页
 
 
 ### react-router-dom 与 react-router 的区别

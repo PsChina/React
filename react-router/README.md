@@ -453,7 +453,7 @@ compoentA ==================> componentB
 
 ```jsx
 import React, { Component } from 'react'
-function HighOrderComponent(Cmponent){
+function HighOrderComponent(PureComponent){
     class HOComponent extends Component{
         constructor(){
             super()
@@ -463,7 +463,7 @@ function HighOrderComponent(Cmponent){
         }
         // ... Other life cycle.
         render(){
-            return <Cmponent {...this.props}/>
+            return <PureComponent {...this.props}/>
         }
     }
 

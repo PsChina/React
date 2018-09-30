@@ -472,7 +472,7 @@ export default importCompoent=>{ // 接收一个被 promise 包裹的组件
             }
         }
         componentDidMount(){ // 当空壳组件加载完毕的时候开始从 promise 内获取异步组件并设置到 state 内。
-            importCompoent().then(({default:component})=>{
+            importCompoent().then(({default:component})=>{ // 查看 demo06 可查阅 async awite 写法。
                 this.setState({
                     component
                 })
@@ -521,6 +521,32 @@ class App extends Component{
     }
 }
 ReactDOM.render(<App/>,document.getElementById('root'))
+```
+
+以上代码需要配置 webpack 对 `import()` 的依赖
+
+```bash
+npm i @babel/plugin-syntax-dynamic-import -D
+```
+
+webpack.config.js
+```js
+export default {
+    // ...
+    module: {
+        rules: [
+            { test: /\.jsx?$/, use: [ {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/env', '@babel/react'],
+                    plugins: ['@babel/plugin-syntax-dynamic-import']
+                }
+            } ] }
+        ]
+        // ...
+    }
+    //...
+}
 ```
 
 效果:

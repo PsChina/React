@@ -427,9 +427,10 @@ es6 的 import() 语法支持动态加载文件我们利用这一特新加上高
 
 一个参数为组件返回值也是组件的函数
 
+```
              f(compoentA)
 compoentA ==================> componentB
-
+```
 
 AsyncComponent.jsx
 ```jsx

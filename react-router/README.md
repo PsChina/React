@@ -432,6 +432,32 @@ es6 的 import() 语法支持动态加载文件我们利用这一特新加上高
 compoentA ==================> componentB
 ```
 
+例如一个给纯函数组件加生命周的高阶组件:
+
+```jsx
+import React, { Component } from 'react'
+function HighOrderComponent(Cmponent){
+    class HOComponent extends Component{
+        constructor(){
+            super()
+        }
+        componentDidMount(){
+            // Do something
+        }
+        // ... Other life cycle.
+        render(){
+            return <Cmponent />
+        }
+    }
+
+    return <HOComponent />
+}
+
+```
+
+
+### 异步高阶组件实例：
+
 AsyncComponent.jsx
 ```jsx
 import React, { Component } from 'react'

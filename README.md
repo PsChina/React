@@ -153,7 +153,8 @@ npm i html-webpack-plugin -D
 __下载启动本地服务的工具:__
 
 ```bash
-npm i webpack webpack-dev-server -D -g
+npm i webpack webpack-dev-server -g
+npm i webpack webpack-dev-server -D
 ```
 
 __下载 webpack :__

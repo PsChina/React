@@ -57,6 +57,7 @@ react 推崇所有的功能都用 js 来实现，包括 html css。
 用 js 来表示 html 是可以办到的。
 
 举个例子:
+
 ```js
 const HelloWorld = {
     nodeName:'div',
@@ -69,11 +70,14 @@ const HelloWorld = {
     children:[
         {
             nodeName:'text',
-            innrtHtml:'HelloWorld'
+            attrs:{
+                innrtHtml:'HelloWorld',
+            },
         }
     ]
 }
 ```
+
 但是这样表示会带来不便于书写和阅读的问题。
 
 解决办法就是jsx。

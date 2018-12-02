@@ -1,3 +1,5 @@
+# react 语法
+
 这个文档大部分是学习阮一峰老师的 [React demos](https://github.com/ruanyf/react-demos) 的学习笔记，还有一些[react 小书](http://huziketang.mangojuice.top/books/react/)的内容。
 
 ## 目录
@@ -24,6 +26,7 @@ react 的编写需要引入 react 以及 react-dom 这个两个 js 库。
 react 是以一个一个组件的方式来编写应用的。
 
 它定义组件的方式是：
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -41,17 +44,19 @@ class Component extends React.Component{
 
 ReactDOM.render(<Component />,document.getElementById('root'))
 ```
+
 上面的 render 方法是必须实现的它的返回值是一个用"()"小括号括起来的 jsx 就是你要编写的 ui 。
 
 你不需要使用 new 关键字来获取组件，像使用 html 标签一样使用它, 就像: `<Component/>` 。
 
-__需要注意的是原生标签小写,自定义组件标签需首字母大写。__
+__需要注意的是原生标签小写,自定义组件标签需首字母大写__。
 
 运行效果:
 
 ![helloworld](https://github.com/PsChina/React/blob/master/images/helloworld.png)
 
 ### 什么是jsx
+
 react 推崇所有的功能都用 js 来实现，包括 html css。
 
 用 js 来表示 html 是可以办到的。
@@ -86,9 +91,10 @@ __允许在js中书写类似html标签的语法。__ (所有原生标签 + react
 
 但实质上 jsx 会被 react 的环境转换成 js 对象 也就是说 __jsx 是上面那种 js 对象的语法糖。__
 
-__jsx只能存在一个根元素。__
+__jsx只能存在一个根元素__。
 
 以下写法是不合法的：
+
 ```jsx
         render(){
             return (
@@ -97,7 +103,9 @@ __jsx只能存在一个根元素。__
             )
         }
 ```
+
 正确写法是：
+
 ```jsx
         render(){
             return (
@@ -109,10 +117,12 @@ __jsx只能存在一个根元素。__
         }
 ```
 
-#### 扩展 
+#### 扩展
+
 下面这个例子使用了 {} 表达式它用于在 jsx 中绑定 js 对象。
 
 如果理解了 jsx 其实就是一个 js 对象那么上面的代码可以这样写：
+
 ```js
 const HelloWorld = <div>Hello World!</div>
 
@@ -163,14 +173,14 @@ render(){
 
 ```
 
-
 ## demo02: 绑定事件和属性
 
 如何在react组件上添加一个 click 事件，或者 class ？
 
-__react中使用 {}  表达式在 jsx 中绑定 js 变量。__
+__react中使用 {}  表达式在 jsx 中绑定 js 变量__。
 
 绑定事件:
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -191,9 +201,10 @@ class App extends React.Component{
 
 ReactDOM.render(<App />,document.getElementById('root'))
 ```
+
 用以上这种驼峰方式绑定 dom 事件。
 
-__所有原生 dom 事件名改成驼峰写法即可绑定 dom 事件。__
+__所有原生 dom 事件名改成驼峰写法即可绑定 dom 事件__。
 
 react 内部对事件对象进行了封装是标准的事件对象不用考虑浏览器兼容也不会有 api 不一致的情况。
 
@@ -209,6 +220,7 @@ react 内部对事件对象进行了封装是标准的事件对象不用考虑�
 绑定属性:
 
 app.css
+
 ```css
 .orange{
     color: 'orange'
@@ -216,6 +228,7 @@ app.css
 ```
 
 app.jsx
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -236,7 +249,8 @@ class App extends React.Component{
 
 ReactDOM.render(<App />,document.getElementById('root'))
 ```
-__className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的 html 属性正常使用。__
+
+__className 和 htmlFor 与 js 关键字 class、for 冲突需要特别定义 className 和 htmlFor 其他的 html 属性正常使用__。
 
 例如 style。
 
@@ -314,6 +328,7 @@ class App extends React.Component{
 
 ReactDOM.render(<App />,document.getElementById('root'))
 ```
+
 以上代码我们自定义了4个自定义标签 Header 、 Body 、Footer 、App 。
 
 其中 App 这个标签是通过嵌套 Header 、 Body 、Footer 三个自定义标签组合而成的。
@@ -376,6 +391,7 @@ ReactDOM.render(<App />,document.getElementById('root'))
 ```
 
 上面的代码中为 name 添加默认值的代码:
+
 ```js
     static defaultProps = {
         name: 'world'
@@ -388,6 +404,7 @@ ReactDOM.render(<App />,document.getElementById('root'))
 __注意:__
 
 静态属性是 js 的新特新需要安装 `@babel/plugin-proposal-class-properties`。
+
 ```bash
 npm i @babel/plugin-proposal-class-properties -D
 ```
@@ -399,6 +416,7 @@ npm i @babel/plugin-proposal-class-properties -D
 如果配置不成功可以使用 `HelloMessage.defaultProps` 代替 `static defaultProps` 。
 
 例如:
+
 ```js
 class HelloMessage extends React.Component{
     //...
@@ -452,7 +470,7 @@ React 提供了一个 `React.Children.map` 函数来专门处理 `this.props.chi
 
 它的功能和 `Array.prototype.map` 几乎一样。
 
-```
+```text
 如果 children 是一个嵌套的对象或数组，它将被遍历。如果 children 是 null 或 undefined ，返回 null 或 undefined 而不是一个空数组。
 ```
 
@@ -504,6 +522,7 @@ class App extends React.Component{
 
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
+
 如果传递了参数，并且类型是正确的（ `<MyTitle title="标题" />` ）效果如下:
 
 ![right](https://github.com/PsChina/React/blob/master/images/right.png)
@@ -511,24 +530,27 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 如果传递了参数，但是类型不对，例如上面的 MyTitle 组件要求字符串但是传递的是数字 123 （ `<MyTitle title={123} />` ） 则会出现以下报错:
 ![type_error](https://github.com/PsChina/React/blob/master/images/type_error.png)
 
-```
+```log
 Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `MyTitle`, expected `string`.
     in MyTitle (created by App)
     in App
 ```
+
 `不成功的属性类型：无效的 number 属性 title 提供给了 MyTitle 预期是 string。`
 
 如果没有传递参数（ `<MyTitle />` ），则会出现以下报错:
 ![no_val](https://github.com/PsChina/React/blob/master/images/no_val.png)
 
-```
+```log
 Warning: Failed prop type: The prop `title` is marked as required in `MyTitle`, but its value is `undefined`.
     in MyTitle (created by App)
     in App
 ```
+
 `不成功的属性类型：title 属性在 MyTitle 中被标记为必需的，但是它的值是 undefined 。`
 
 如果参数是可选的可以将以上代码改写为:
+
 ```jsx
 // 新特新写法: (class 内部)
 static propTypes = {
@@ -539,6 +561,7 @@ MyTitle.propTypes = {
     title: PropTypes.string // 可选属性 title 类型必须是 string 。
 }
 ```
+
 ### typelist
 
 ```js
@@ -570,7 +593,7 @@ MyComponent.propTypes = {
         color: PropTypes.string,
         fontSize: PropTypes.number
     }),
-    // 你也可以在任何 PropTypes 属性后面加上 `isRequired` 
+    // 你也可以在任何 PropTypes 属性后面加上 `isRequired`
     // 后缀，这样如果这个属性父组件没有提供时，会打印警告信息
     requiredFunc: PropTypes.func.isRequired,
 
@@ -589,7 +612,7 @@ MyComponent.propTypes = {
         }
     },
 
-    // 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf` 
+    // 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf`
     // 验证器，它应该在验证失败时返回一个 Error 对象。 它被用
     // 于验证数组或对象的每个值。验证器前两个参数的第一个是数组
     // 或对象本身，第二个是它们对应的键。
@@ -623,7 +646,7 @@ class MyComponent  extends React.Component{
             <div>
                 <div>
                     <input ref="myInput" type="text"/>
-                </div> 
+                </div>
                 <button onClick={this.handerClick.bind(this)}>Click here to focus the input</button>
             </div>
         )
@@ -632,7 +655,8 @@ class MyComponent  extends React.Component{
 
 ReactDOM.render(<MyComponent />,document.getElementById('root'))
 ```
-__如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，然后可以在组件内部的任意位置通过 this.refs.[value] 来获取。__
+
+__如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，然后可以在组件内部的任意位置通过 this.refs.[value] 来获取__。
 
 上面的代码中 click 函数内使用了 this 关键字，注意在绑定 click 函数的时候使用`bind`函数绑定`this`。
 
@@ -646,7 +670,7 @@ __如果想在 React 中操作 dom 可以事先在 jsx 内写上 ref 属性，�
 
 React 将组件视为状态机，同时用 `this.state` 保存组件状态，`this.setState()` 更新 `this.state` 和重新渲染组件。
 
-#### 实例：(点赞按钮)
+### 实例：(点赞按钮)
 
 ```jsx
 import React from 'react'
@@ -737,10 +761,9 @@ ReactDOM.render(<Input />,document.getElementById('root'))
 
 ![Input](https://github.com/PsChina/React/blob/master/images/ui09.gif)
 
-# demo10: 组件生命周期
+## demo10: 组件生命周期
 
 组件的生命周期主要包括三部分：`插入dom`、`更新`、`从dom中卸载`，React 提供进入这几部分的钩子函数。 `will` 函数将会在某个动作开始前调用，`did` 函数将会在某个动作发生后调用。
-
 
 ```jsx
 import React from 'react'
@@ -797,11 +820,13 @@ ReactDOM.render(<Hello name="World"/>,document.getElementById('root'))
 如何从服务器或者一个接口提供者获取组件数据？答案是使用 Ajax 在 `componentDidMount` 的事件处理程序中获取数据。当服务器响应到达时，使用 `this.setState()` 存储数据，以触发UI的重新渲染。
 
 axios 是一个代替$.ajax的库。
+
 ```bash
 npm i axios -S
 ```
 
 以下功能是一个通过输入作者名称和仓库名称查询仓库ssh地址的demo
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -869,6 +894,7 @@ ReactDOM.render(<AjaxDemo url="https://api.github.com/repos" />, document.getEle
 与 demo09 类似，不过 demo09 过于简单。
 
 例如:
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -911,10 +937,10 @@ class App extends React.Component {
         })
     }
     render(){
-        // 将 message 分别传递给 input 和 view 两个子组件，将修改 message 的函数传递给 input 。 
+        // 将 message 分别传递给 input 和 view 两个子组件，将修改 message 的函数传递给 input 。
         return (
             <div>
-                <Input message={this.state.message} updataMessge={this.changeMessage.bind(this)}/> 
+                <Input message={this.state.message} updataMessge={this.changeMessage.bind(this)}/>
                 <View message={this.state.message}/>
             </div>
         )
@@ -937,6 +963,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 这涉及到两种修改数据的两种方式 `直接修改` `替换修改` , React 采用的是 `替换修改`。
 
 直接修改数据:
+
 ```js
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
@@ -944,6 +971,7 @@ player.score = 2;
 ```
 
 替换修改数据:
+
 ```js
 var player = {score: 1, name: 'Jeff'};
 
@@ -957,9 +985,11 @@ var newPlayer = Object.assign({}, player, {score: 2});
 两种方式的结果是一样的，但是第二种并没有改变之前已有的数据。通过这样的方式，我们可以得到以下几点好处：
 
 #### 很轻松地实现 撤销/重做以及时间旅行
+
 运用不可变性原则可以让我们很容易实现一些复杂的功能。例如我们在这个教程中会实现的，通过点击列表中的某一项直接返回当某一步棋时的状态。不改变已有的数据内容可以让我们在需要的时候随时切换回历史数据。
 
 #### 记录变化
+
 在我们直接修改一个对象的内容之后，是很难判断它哪里发生了改变的。我们想要判断一个对象的改变，必须拿当前的对象和改变之前的对象相互比较，遍历整个对象树，比较每一个值，这样的操作复杂度是非常高的。
 
 而运用不可变性原则之后则要轻松得多。因为我们每次都是返回一个新的对象，所以只要判断这个对象被替换了，那么其中数据肯定是改变了的。
@@ -970,9 +1000,11 @@ var newPlayer = Object.assign({}, player, {score: 2});
 ## 纯函数组件与函数式编程
 
 React 的核心思想 - View 是 state 的输出。
+
 ```js
 View = f(state)
 ```
+
 上式中，`f`表示函数关系。只要 State 发生变化， View 也会随之变化。
 
 类似 y = f(x)
@@ -981,7 +1013,7 @@ x 是输入 y 是输出
 
 而 React 根据不同的 state 组件所展示的状态也不一样。
 
-__React 的本质是将图形界面（GUI）函数化。__
+__React 的本质是将图形界面（GUI）函数化__。
 
 这就需要用到纯函数组件。
 
@@ -1004,7 +1036,8 @@ const Title = props => <h1>{props.text}</h1>
 
 我忍不住说一下
 
-`=>` 这个符号在证明题里用的最多了，推导过程必用，箭头函数用起来的感觉就是 x 经过函数 f 的处理推导出了 y 。 
+`=>` 这个符号在证明题里用的最多了，推导过程必用，箭头函数用起来的感觉就是 x 经过函数 f 的处理推导出了 y 。
+
 ```js
 const f = x=>y
 ```
@@ -1020,11 +1053,12 @@ const Component = props => {
 }
 ```
 
-` Redux 要求 UI 的渲染组件都是纯组件，即不包含任何状态（this.state）的组件。`
+`Redux 要求 UI 的渲染组件都是纯组件，即不包含任何状态（this.state）的组件。`
 
 所以学会它能帮我们更好的使用 react 。
 
 用起来的效果是这样的
+
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -1073,8 +1107,8 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 [项目源码](https://github.com/PsChina/React/tree/master/demos/exercise-project/App)
 
-
 尚未完成表单验证以及css样式所以有一些不足请谅解。
+
 ```js
 
 
@@ -1104,4 +1138,5 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 
 
 ```
+
 end

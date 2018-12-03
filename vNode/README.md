@@ -40,10 +40,15 @@ const HelloWorld = {
     attrs:{
         className:'',
     },
+    css:{
+        width: '100px',
+        height: '40px',
+        color: 'green'
+    },
     events:{
         onclick:()=>{ console.log('Hello virtual DOM') }
     },
-    children:[
+    childrens:[
         {
             nodeName:'text',
             attrs:{

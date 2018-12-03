@@ -1,4 +1,4 @@
-# 虚拟 dom
+# 虚拟 dom (virtual DOM)
 
 这篇文档用于书写我对虚拟 dom 的一些自己的见解。
 

@@ -20,7 +20,7 @@ angular，react，vue 等框架的出现就是为了解决这个问题的。
 
 ### angular
 
-angular 采用的机制是 藏值检测查机制 所有使用了 ng 指令的 scope data 和 {{}} 语法的 scope data 都会被加入臧检测的队列
+angular 采用的机制是 脏值检测查机制 所有使用了 ng 指令的 scope data 和 {{}} 语法的 scope data 都会被加入脏检测的队列
 
 ### vue
 

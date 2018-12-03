@@ -66,17 +66,19 @@ react 推崇所有的功能都用 js 来实现，包括 html css。
 ```js
 const HelloWorld = {
     nodeName:'div',
-    // attrs:{
-    //     className:'',
-    // },
-    // events:{
-    //     onclick:()=>{}
-    // },
-    children:[
+//    attrs:{
+//        className:'',
+//    },
+//    css:{
+//    },
+//    events:{
+//        onclick:()=>{}
+//    },
+    childrens:[
         {
             nodeName:'text',
             attrs:{
-                innrtHtml:'HelloWorld',
+                innerText:'HelloWorld',
             },
         }
     ]

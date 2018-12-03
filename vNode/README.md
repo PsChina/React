@@ -47,7 +47,7 @@ const HelloWorld = {
         {
             nodeName:'text',
             attrs:{
-                innText:'HelloWorld',
+                innerText:'HelloWorld',
             },
         }
     ]

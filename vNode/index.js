@@ -42,7 +42,7 @@ function render(vNode) {
     }
 
     if(childrens){
-        for(children of childrens) {
+        for(const children of childrens) {
             // 生成子节点
             const childrenNode = render(children)
             // 绑定子节点

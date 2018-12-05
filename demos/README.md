@@ -59,7 +59,7 @@ __需要注意的是原生标签小写,自定义组件标签需首字母大写__
 
 react 推崇所有的功能都用 js 来实现，包括 html css。
 
-用 js 来表示 html 是可以办到的。
+用 js 来表示 html 是可以办到的。 ([虚拟 dom](https://github.com/PsChina/React/tree/master/vNode))
 
 举个例子:
 

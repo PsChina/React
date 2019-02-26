@@ -24,7 +24,7 @@ angular 采用的机制是 脏值检测查机制 所有使用了 ng 指令的 sc
 
 ### vue
 
-vue 采用的是虚拟 dom 通过重写 setter ， getter 实现观察者监听 data 属性的变化生成新的虚拟 dom 通过 h 函数创建真实 dom 替换掉dom树上对应的旧 dom。
+vue 是通过重写 setter ， getter 实现观察者监听 data 属性的变化生成新的虚拟 dom 通过 h 函数创建真实 dom 替换掉dom树上对应的旧 dom。当然Vue在后来也引入了 diff 算法来实现 dom 更新。 
 
 ### react
 

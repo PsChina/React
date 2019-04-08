@@ -38,16 +38,14 @@
     line-height: 30px;
     text-align: center;
     cursor: pointer;
+    position: absolute;
+    bottom: 40px;
 }
 
 .modal-confirm {
-    position: absolute;
     left: 40px;
-    bottom: 40px;
 }
 
 .modal-cancel {
-    position: absolute;
     right: 40px;
-    bottom: 40px;
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Modal.css'
 
-const Modal = props => props.visible ? (<div className="modal-box">
+const Modal = props => props.visible ? (<div className="modal-box" style={{backgroundColor:`rgba(0, 0, 0, ${props.opacity})`}}>
 <div className="modal-content" style={{width:props.width,height:props.height}}>
     <div className={props.titleClass}>{props.title}</div>
     <div className={props.contentClass}>{props.content}</div>
@@ -25,7 +25,8 @@ Modal.defaultProps = {
     okClass: 'modal-confirm',
     cancelClass: 'modal-cancel',
     height:'auto',
-    width:'400px'
+    width:'400px',
+    opacity: 0.6
 }
 
 export default Modal

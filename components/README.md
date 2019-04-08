@@ -24,6 +24,7 @@ usage
 | cancelClass | 对话框取消按钮自定义样式 |'modal-cancel'| string|
 | height | 对话框宽度 | 'auto' | string |
 | width | 对话框高度 | '400px' | string |
+| opacity | 对话框透明度 | 0.6 | nunmber |
 
 
 

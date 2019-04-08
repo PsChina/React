@@ -36,6 +36,7 @@ class App extends Component {
         title={this.state.title} 
         content={this.state.content} 
         onOk={this.onOk.bind(this)} 
+        opacit={0.66}
         onCancel={this.onCancel.bind(this)}/>
       </div>
     );

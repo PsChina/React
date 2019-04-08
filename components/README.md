@@ -7,6 +7,16 @@ react components list
 
 ## Modal
 
+自己实现一个 Modal 弹框组件。
+
+要求：
+
+1、能够相应确定取消事件
+
+2、能够展示对话框内容
+
+3、能够实现国际化
+
 [link](./Modal)
 
 usage

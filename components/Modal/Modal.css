@@ -12,6 +12,7 @@
 }
 
 .modal-content {
+    position: relative;
     min-width: 400px;
     background-color: white;
     padding: 40px;
@@ -28,9 +29,7 @@
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
+    
 }
 
 .modal-confirm,.modal-cancel {
@@ -39,4 +38,16 @@
     line-height: 30px;
     text-align: center;
     cursor: pointer;
+}
+
+.modal-confirm {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+}
+
+.modal-cancel {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
 }

@@ -11,49 +11,19 @@ react components list
 
 usage
 
-```js
-import React, { Component } from 'react';
-import './App.css';
-import Modal from './Modal/Modal.jsx'
-class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      title: 'React Modal',
-      content: '欢迎使用！',
-      visible: false
-    }
-  }
-  openModal(){
-    this.setState({
-      visible: true
-    })
-  }
-  onOk(){
-    this.setState({
-      visible:false
-    })
-  }
-  onCancel(){
-    this.setState({
-      visible:false
-    })
-  }
-  render() {
-    return (
-      <div className="App">
-        <div onClick={this.openModal.bind(this)}>开启弹窗</div>
-        <Modal 
-        visible={this.state.visible}
-        title={this.state.title} 
-        content={this.state.content} 
-        onOk={this.onOk.bind(this)} 
-        onCancel={this.onCancel.bind(this)}/>
-      </div>
-    );
-  }
-}
+|属性|说明|默认值|类型|
+| :--: | :--------: | :--: | :--: |
+| onOk | 点击确定的回调函数 |noop| function |
+| onCancel | 点击取消的回调函数 |noop| function |
+| conFirmText |  确定按钮自定义文字 |'确定'| string |
+| cancelText | 取消按钮自定义文字 | '取消' | string |
+| titleClass | 对话框 title 自定义样式 |'modal-title'| string |
+| contentClass | 对话框内容自定义样式  |'modal-text'| string |
+| footerClass | 对话框确定取消按钮容器自定义样式 |'modal-footer| string |
+| okClass | 对话框确定按钮自定义样式 |'modal-confirm'| string |
+| cancelClass | 对话框取消按钮自定义样式 |'modal-cancel'| string|
+| height | 对话框宽度 | 'auto' | string |
+| width | 对话框高度 | '400px' | string |
 
-export default App;
-```
+
 

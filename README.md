@@ -153,7 +153,7 @@ npm i html-webpack-plugin -D
 __下载启动本地服务的工具:__
 
 ```bash
-npm i webpack webpack-dev-server -g
+sudo npm i webpack webpack-dev-server -g
 npm i webpack webpack-dev-server -D
 ```
 
@@ -166,7 +166,7 @@ npm i webpack -D
 如果电脑内已经全局和本地安装了 webpack-cli 那么不必运行以下两行。
 
 ```bash
-npm i webpack-cli -g
+sudo npm i webpack-cli -g
 ```
 
 ```bash

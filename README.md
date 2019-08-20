@@ -56,7 +56,7 @@ class App extends React.Component{
 
 ReactDOM.render(<App/>,document.getElementById('root'))
 ```
-在 html 中需要一个元素来作为 react dom 树的根节点，当然你也可以直接用 body 。
+在 html 中需要一个元素来作为 react dom 树的根节点，注意最好不要使用 body 。 [原因](https://medium.com/@dan_abramov/two-weird-tricks-that-fix-react-7cf9bbdef375)。
 
 index.html
 ```html

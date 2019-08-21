@@ -5,10 +5,10 @@ const StaffList = (fatherProps)=>{
         function deleteStaff(_item){
             const newOriginList = originList.filter(item=>JSON.stringify(item)!==JSON.stringify(_item))
             const newStaffList = staffList.filter(item=>JSON.stringify(item)!==JSON.stringify(_item))
-            fatherProps.updata({originList:newOriginList,staffList:newStaffList})
+            fatherProps.update({originList:newOriginList,staffList:newStaffList})
         }
         function openDetail(_item){
-            fatherProps.updataCurrentStaff(_item)
+            fatherProps.updateCurrentStaff(_item)
             fatherProps.toggleDetail()
         }
         return (
@@ -36,9 +36,9 @@ function noop (){
 StaffList.defaultProps={
     staffList:[],
     originList:[],
-    updata: noop,
+    update: noop,
     toggleDetail: noop,
-    updataCurrentStaff: noop
+    updateCurrentStaff: noop
 }
 
 export default StaffList

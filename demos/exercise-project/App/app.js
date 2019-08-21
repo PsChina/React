@@ -106,7 +106,7 @@ class App extends React.Component{
             staffList: JSON.parse(JSON.stringify(this.state.originList))
         })
     }
-    updata(newState){
+    update(newState){
         this.setState({
             ...newState
         })
@@ -116,7 +116,7 @@ class App extends React.Component{
             showDetail:!this.state.showDetail
         })
     }
-    updataCurrentStaff(currentStaff){
+    updateCurrentStaff(currentStaff){
         this.setState({
             currentStaff
         })
@@ -181,7 +181,7 @@ class App extends React.Component{
         })
     }
     render(){
-        const updata = this.updata.bind(this)
+        const update = this.update.bind(this)
         const toggleDetail = this.toggleDetail.bind(this)
         return (
             <div>
@@ -190,9 +190,9 @@ class App extends React.Component{
                     titles={this.state.titles} 
                     originList={this.state.originList}
                     staffList={this.state.staffList} 
-                    updata={updata}
+                    update={update}
                     toggleDetail={toggleDetail}
-                    updataCurrentStaff={this.updataCurrentStaff.bind(this)}
+                    updateCurrentStaff={this.updateCurrentStaff.bind(this)}
                     placeholder={this.state.placeholder}
                     searchVal={this.state.searchVal}
                     currentType={this.state.currentType}
@@ -204,7 +204,7 @@ class App extends React.Component{
                 <Footer 
                     originList={this.state.originList} 
                     staffList={this.state.staffList}  
-                    updata={updata}
+                    update={update}
                 />
                 <Detail 
                     show={this.state.showDetail}

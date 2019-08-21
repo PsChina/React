@@ -17,9 +17,9 @@ const Body = props => (
             titles={props.titles} 
             staffList={props.staffList} 
             originList={props.originList}
-            updata={props.updata}
+            update={props.update}
             toggleDetail={props.toggleDetail}
-            updataCurrentStaff={props.updataCurrentStaff}
+            updateCurrentStaff={props.updateCurrentStaff}
         />
     </div>
 )
@@ -36,9 +36,9 @@ Body.defaultProps = {
     searchVal: '',
     currentType: '全部',
     currentSortWay: '身份',
-    updata: noop,
+    update: noop,
     toggleDetail: noop,
-    updataStaffList: noop,
+    updateStaffList: noop,
     changeSortType: noop,
     changeSortWay: noop,
     onSearch: noop,

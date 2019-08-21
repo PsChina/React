@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.scss'
 import Select from '../../components/Select/Select.jsx'
-import ForFormCloums from '../../components/ForFormColums/ForFormColums.jsx'
+import ForFormColumns from '../../components/ForFormCloumns/ForFormColumns.jsx'
 
 class Footer extends React.Component{
     constructor(){
@@ -93,7 +93,7 @@ class Footer extends React.Component{
         const item = Object.assign({},this.state.item)
         originList.push(item)
         staffList.push(item)
-        this.props.updata({
+        this.props.update({
             originList,
             staffList
         })
@@ -102,7 +102,7 @@ class Footer extends React.Component{
         return(
             <div className="app-footer">
                 <h3>人员新增</h3>
-                <ForFormCloums data={this.state.data}/>
+                <ForFormColumns data={this.state.data}/>
                 <div>
                     <button onClick={this.addStaff.bind(this)}>新增</button>
                 </div>
@@ -112,7 +112,7 @@ class Footer extends React.Component{
 }
 
 Footer.defaultProps = {
-    updata:()=>undefined,
+    update:()=>undefined,
     originList:[],
     staffList:[]
 }

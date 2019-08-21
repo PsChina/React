@@ -2,7 +2,7 @@ import React from 'react'
 
 import FormColumn from '../FormColumn/FormColumn.jsx'
 
-const ForFormColums = props=>(
+const ForFormColumns = props=>(
     <div>
         { props.data.map( item=>{
             return (
@@ -18,8 +18,8 @@ const ForFormColums = props=>(
     </div>
 )
 
-ForFormColums.defaultProps = {
+ForFormColumns.defaultProps = {
     data:[]
 }
 
-export default ForFormColums
+export default ForFormColumns

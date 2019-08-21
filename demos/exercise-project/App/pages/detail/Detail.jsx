@@ -1,7 +1,7 @@
 import React from 'react'
 import './Detail.scss'
 import Select from '../../components/Select/Select.jsx'
-import ForFormCloums from '../../components/ForFormColums/ForFormColums.jsx'
+import ForFormColumns from '../../components/ForFormColumns/ForFormColumns.jsx'
 
 class Detail extends React.Component {
     constructor(){
@@ -98,7 +98,7 @@ class Detail extends React.Component {
         return(
             <div className="detail" style={{display:this.props.show?'flex':'none'}}>
                 <h3>点击'完成'保存修改,点击'关闭'放弃未保存修改并退出.</h3>
-                <ForFormCloums data={this.state.data}/>
+                <ForFormColumns data={this.state.data}/>
                 <div className="detail-footer">
                     <div className="footer-item" onClick={this.save.bind(this)}>完成</div>
                     <div className="footer-item" onClick={this.cancel.bind(this)}>关闭</div>

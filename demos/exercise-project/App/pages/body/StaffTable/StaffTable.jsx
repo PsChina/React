@@ -8,9 +8,9 @@ const StaffTable = props=>(
         <StaffList 
             staffList={props.staffList}
             originList={props.originList}
-            updata={props.updata}
+            update={props.update}
             toggleDetail={props.toggleDetail}
-            updataCurrentStaff={props.updataCurrentStaff}
+            updateCurrentStaff={props.updateCurrentStaff}
         />
     </table>
 )
@@ -23,9 +23,9 @@ StaffTable.defaultProps = {
     titles:[],
     originList:[],
     staffList:[],
-    updata: noop,
+    update: noop,
     toggleDetail: noop,
-    updataCurrentStaff: noop
+    updateCurrentStaff: noop
 }
 
 export default StaffTable

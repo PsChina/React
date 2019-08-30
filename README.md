@@ -79,7 +79,7 @@ webpack.config.js
 ```js
 
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var path = requre('path')
+var path = require('path')
 
 module.exports = {
     entry: './app.js',

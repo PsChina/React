@@ -1007,7 +1007,7 @@ React 的核心思想 - View 是 state 的输出。
 View = f(state)
 ```
 
-上式中，`f`表示函数关系。只要 State 发生变化， View 也会随之变化。
+上式中， `f` 表示对应关系。只要 State 发生变化，对应的 View 也会随之变化。
 
 类似 y = f(x)
 

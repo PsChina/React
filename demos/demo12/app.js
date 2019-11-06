@@ -6,7 +6,7 @@ class Input extends React.Component {
         super()
     }
     handerChange(event){ // onchange 事件会触发 handerChange 回调。
-        this.props.updataMessge(event.target.value) // 回调函数内部调用父组件传递过来的函数更新 message 。
+        this.props.updateMessage(event.target.value) // 回调函数内部调用父组件传递过来的函数更新 message 。
     }
     render(){
         return (
@@ -42,7 +42,7 @@ class App extends React.Component {
         // 将 message 分别传递给 input 和 view 两个子组件，将修改 message 的函数传递给 input 。 
         return (
             <div>
-                <Input message={this.state.message} updataMessge={this.changeMessage.bind(this)}/> 
+                <Input message={this.state.message} updateMessage={this.changeMessage.bind(this)}/> 
                 <View message={this.state.message}/>
             </div>
         )

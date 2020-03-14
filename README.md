@@ -4,7 +4,7 @@
 1. [react 语法](https://github.com/PsChina/React/tree/master/demos#目录)
 1. [react 路由](https://github.com/PsChina/React/tree/master/react-router#目录)
 1. [redux](https://github.com/PsChina/React/tree/master/redux#目录)
-1. [react 环境搭建](#react环境搭建)
+1. [react 环境搭建](https://github.com/PsChina/React/tree/master/demos/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
 1. [react 自定义组件实例](/components)
 1. [react-hook](/react-hook)
 
@@ -270,6 +270,67 @@ package.json
 }
 ```
 就可以通过 `npm run dev` 来运行项目啦。
+
+## react 项目 alias 配置
+
+alias 别名 指的是在项目开发的过程中对某一个资源引用路径取别名。
+
+为什么我们要取别名？
+
+因为使用相对路径比较费脑子，且容易出错，为避免浪费宝贵的时间在这种没有技术含量的事情上建议使用别名来代替相对路径。
+
+例如: 我们将 `src` 取名为 `@src` 以下写法将会变得简单
+
+```
+|-src // 代码源文件
+| |- components // 组件 
+| |  |
+| |  | - charts // 图表
+| |  |     |
+| |  |     | - EagleEyePieChart // 目标组件
+```
+
+不用 alias 的话，在不用的文件中引用这个组件会有不同的相对路径，也就是有不同数目的 `../` 的相互拼接，这导致一个问题就是当你的项目结构发生改变的时候这该死的相对路径的会很烦人。
+```js
+import PieCharts from '../../components/charts/EagleEyePieChart';
+```
+
+使用 alias 的话，我们在任何文件中引用这个组件写法都是和下面的代码一模一样。是不是很方便。
+```js
+import PieCharts from '@src/components/charts/EagleEyePieChart';
+```
+
+下面来介绍下如何在 React 项目中配置 alias
+
+1. 如果你的 react 项目是用 create-react-app 生成的那么你需要 打开 react 项目的配置项 命令是 `npm run eject` 参考[打开 webpack 配置项](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8#%E4%BA%94%E6%89%93%E5%BC%80-webpack-%E9%85%8D%E7%BD%AE%E9%A1%B9).
+
+1. 接下来找到 `webpack.config.js` 这个文件
+
+1. 找到 `resolve` 下的 `alias` 在 `resolve.alias` 中新增你要取别名的文件夹路径。
+
+    ```js
+        resolve: {
+        //...
+        alias: {
+            //...
+            "@src":paths.appSrc,
+        },
+        // ...
+        }
+    ```
+
+1. 如果你的项目是 typescript 项目请找到 `tsconfig.json` 添加以下设置:
+
+    ```json
+    {
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+        "@src/*":["./src/*"]
+        }
+    }
+    }
+    ```
 
 ### 学习 react 语法
 

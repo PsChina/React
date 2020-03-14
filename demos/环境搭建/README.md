@@ -1,6 +1,6 @@
 1. [react语法](https://github.com/PsChina/React/tree/master/demos#目录)
 1. [react环境搭建](#react环境搭建)
-1. [React 项目 alias 配置](#react-项目-alias-配置)
+1. [react 项目 alias 配置](#react-项目-alias-配置)
 
 ## react环境搭建
 如果不想这么麻烦可以使用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
@@ -265,7 +265,7 @@ package.json
 就可以通过 `npm run dev` 来运行项目啦。
 
 
-## React 项目 alias 配置
+## react 项目 alias 配置
 
 alias 别名 指的是在项目开发的过程中对某一个资源引用路径取别名。
 

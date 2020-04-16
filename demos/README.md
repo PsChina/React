@@ -17,6 +17,7 @@
 1. [Ajax](#demo11-ajax)
 1. [组件间通讯之状态提升](#demo12-状态提升)
 1. [纯函数组件与函数式编程](#纯函数组件与函数式编程)
+1. [上下文 context](#demo14-context-上下文)
 1. [入门技能检验项目](#project)
 
 ## demo01: Hello World
@@ -1096,6 +1097,92 @@ ReactDOM.render(<App/>,document.getElementById('root'))
 ![purefunctioncomponent](https://github.com/PsChina/React/blob/master/images/purefunctioncomponent.png)
 
 [函数式编程-百度百科](https://baike.baidu.com/item/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/4035031?fr=aladdin)
+
+# demo14 context 上下文
+
+Context 提供了一个无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法。
+
+## 何时使用 Context
+
+Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题或首选语言。举个例子，在下面的代码中，我们通过一个 “theme” 属性手动调整一个按钮组件的样式：
+
+
+demo14 使用 [create-react-app](https://github.com/facebook/create-react-app#readme) 生成。
+
+App.js
+```javascript
+// 这里使用 react hooks 请先阅读 hooks 相关的知识。
+import React,{ useState } from 'react';
+import './App.css';
+import Child from './ChildComponent';
+import { themes, ThemeContext } from './theme-context';
+
+function App() {
+  const [appTheme, setAppTheme] = useState(themes.dark);
+  return (
+    <ThemeContext.Provider value={{
+      appTheme, // 默认皮肤
+      toggleTheme(){ // 实现换肤功能
+        setAppTheme(appTheme === themes.dark ? themes.light : themes.dark);
+      }
+    }} >
+      <div className="App">
+        <div style={{ background: appTheme.background,color: appTheme.foreground }}>222</div>
+        <Child />
+      </div>
+    </ThemeContext.Provider>
+  );
+}
+
+export default App;
+```
+
+使用 context, 我们可以避免通过中间元素传递 props：
+
+ChildComponent.jsx
+```javascript
+import React from 'react';
+import { ThemeContext } from './theme-context';
+
+export default function Child(props) {
+    return (
+            <ThemeContext.Consumer>
+                { ({appTheme,toggleTheme})=>(<div>
+                    <div style={{background: appTheme.background, color: appTheme.foreground}}>child component</div>
+                    <button onClick={toggleTheme}>
+                        changeTheme
+                    </button>                      
+                </div>) }
+            </ThemeContext.Consumer>
+            )
+}
+```
+
+下面是 theme-context 的实现
+
+theme-context.js
+```javascript
+import React from 'react';
+
+export const themes = {
+    light: {
+        foreground: "#000000",
+        background: "#eeeeee"
+    },
+    dark: {
+        foreground: "#ffffff",
+        background: "#222222"
+    }
+};
+
+export const ThemeContext = React.createContext({
+    theme:themes.light,
+    toggleTheme(){} // 这里不需要写具体实现只需要提供默认值
+});
+```
+
+[官方教程](https://zh-hans.reactjs.org/docs/context.html#gatsby-focus-wrapper)
+
 
 ## project
 

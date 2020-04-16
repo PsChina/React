@@ -155,6 +155,11 @@ Route 是路由的一个原材料，它是控制路径对应显示的组件。�
 
 打开 demo01 中的注释再访问 `/other` 会跳转到 `/` 主页
 
+设置默认页面
+
+```jsx
+    <Redirect from="/" to="/default-page-path" exact />
+```
 
 ### react-router-dom 与 react-router 的区别
 

@@ -3,7 +3,7 @@
 1. [react 项目 alias 配置](#react-项目-alias-配置)
 
 ## react环境搭建
-如果不想这么麻烦可以使用[脚手架](https://github.com/PsChina/React/tree/master/React%20%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%20create-react-app%20%E7%9A%84%E4%BD%BF%E7%94%A8)。
+如果不想这么麻烦可以使用[脚手架](https://create-react-app.dev/docs/getting-started)。
 
 ## 前言
 
